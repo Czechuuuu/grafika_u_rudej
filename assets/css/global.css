@@ -1,0 +1,466 @@
+/* ===== GLOBALNE STYLE - WSPÓLNE ELEMENTY ===== */
+
+/* ===== ZMIENNE CSS ===== */
+:root {
+    --primary-color: #f4a023;
+    --primary-hover: #e6921f;
+    --bg-dark: #2f2f2f;
+    --bg-card: #3a3a3a;
+    --bg-card-hover: #454545;
+    --text-light: #fff;
+    --text-muted: #656565;
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+    --border-radius-lg: 24px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+    --shadow-primary: 0 4px 16px rgba(244,160,35,0.15);
+    --transition: all 0.3s ease;
+    --gradient-primary: linear-gradient(90deg, #f4a023 0%, #e6921f 100%);
+    --gradient-reverse: linear-gradient(90deg, #e6921f 0%, #f4a023 100%);
+}
+
+/* ===== TYPOGRAFIA ===== */
+body {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+h4 {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+/* ===== LINKI ===== */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+section {
+    background: var(--bg-card);
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+/* ===== PRZYCISKI ===== */
+.btn, 
+button, 
+input[type="submit"], 
+input[type="button"],
+.wp-block-button__link {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    border: none;
+    border-radius: 32px;
+    padding: 0.75em 2em;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.2;
+    text-align: center;
+    min-width: 120px;
+}
+
+.btn:hover, 
+button:hover, 
+input[type="submit"]:hover, 
+input[type="button"]:hover,
+.wp-block-button__link:hover {
+    background: var(--gradient-reverse);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(244,160,35,0.3);
+    color: var(--text-light);
+}
+
+.btn:active,
+button:active,
+input[type="submit"]:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn:focus,
+button:focus,
+input[type="submit"]:focus {
+    outline: 2px solid var(--primary-hover);
+    outline-offset: 2px;
+}
+
+/* Warianty przycisków */
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.btn-small {
+    padding: 0.5em 1.5em;
+    font-size: 0.9rem;
+    border-radius: 24px;
+}
+
+.btn-large {
+    padding: 1em 2.5em;
+    font-size: 1.1rem;
+}
+
+/* ===== KARTY ===== */
+.card {
+    background: var(--bg-card-hover);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+    transform: scaleY(0);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-4px) scale(1.01);
+}
+
+.card:hover::before {
+    transform: scaleY(1);
+}
+
+.card-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.card-content {
+    color: var(--text-light);
+}
+
+/* ===== FORMULARZE ===== */
+input, 
+textarea, 
+select {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    padding: 0.75em 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    font-size: 1em;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+    outline: none;
+    border-color: var(--primary-hover);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 3px rgba(244,160,35,0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* ===== LISTY ===== */
+ul, ol {
+    padding-left: 2em;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5em;
+    color: var(--text-light);
+}
+
+ul li::marker {
+    color: var(--primary-color);
+}
+
+ol li::marker {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ===== GRID SYSTEM ===== */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ===== FLEX UTILITIES ===== */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* ===== SPACING UTILITIES ===== */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 2rem; }
+.pt-1 { padding-top: 0.5rem; }
+.pt-2 { padding-top: 1rem; }
+.pt-3 { padding-top: 2rem; }
+.pb-1 { padding-bottom: 0.5rem; }
+.pb-2 { padding-bottom: 1rem; }
+.pb-3 { padding-bottom: 2rem; }
+
+/* ===== RESPONSIVE IMAGES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+}
+
+.img-rounded {
+    border-radius: var(--border-radius);
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+/* ===== LOADING STATES ===== */
+.loading {
+    position: relative;
+    color: transparent;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .card {
+        padding: 1.25rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-row .form-group {
+        min-width: auto;
+    }
+    
+    .grid {
+        gap: 1.5rem;
+    }
+    
+    .btn, button, input[type="submit"] {
+        padding: 0.6em 1.5em;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: var(--border-radius-sm);
+    }
+    
+    .card {
+        padding: 1rem;
+        border-radius: var(--border-radius-sm);
+    }
+    
+    .grid {
+        gap: 1rem;
+    }
+    
+    .btn, button, input[type="submit"] {
+        padding: 0.5em 1.2em;
+        font-size: 0.9rem;
+        border-radius: 24px;
+    }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: dark) {
+    /* Już używamy ciemnego motywu jako domyślnego */
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #ffaa00;
+        --bg-card: #000;
+        --text-light: #fff;
+    }
+    
+    .card {
+        border: 2px solid var(--primary-color);
+    }
+}

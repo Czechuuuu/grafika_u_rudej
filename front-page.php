@@ -1,15 +1,15 @@
+
+
 <?php get_header(); ?>
 
 <main class="front-page">
 
-  <!-- HERO -->
   <section class="hero">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero.jpg" alt="Twoje zdjęcie">
     <h1>Twoje hasło przewodnie</h1>
     <a href="<?php echo site_url('/portfolio'); ?>" class="btn">Zobacz portfolio</a>
   </section>
 
-  <!-- WYBRANE PROJEKTY -->
   <section class="featured-projects">
     <h2>Wybrane projekty</h2>
     <div class="projects-grid">
@@ -33,7 +33,6 @@
     </div>
   </section>
 
-  <!-- O MNIE -->
   <section class="about-me">
     <h2>O mnie</h2>
     <div class="about-content">
@@ -44,7 +43,6 @@
     </div>
   </section>
 
-  <!-- USŁUGI -->
   <section class="services">
     <h2>Usługi</h2>
     <div class="services-list">
@@ -61,20 +59,8 @@
       <!-- Dodaj kolejne usługi -->
     </div>
   </section>
-
-  <!-- OPINIE (opcjonalnie) -->
-  <!--
-  <section class="testimonials">
-    <h2>Opinie klientów</h2>
-    <div class="testimonials-list">
-      <blockquote>
-        <p>Super współpraca!</p>
-        <footer>— Klient 1</footer>
-      </blockquote>
-      <!-- Dodaj kolejne opinie -->
     </div>
   </section>
-  -->
 
   <!-- KONTAKT / CTA -->
   <section class="contact-cta">

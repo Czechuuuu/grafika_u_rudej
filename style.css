@@ -3,9 +3,307 @@ Theme Name: grafika_u_rudej
 Theme URI: http://localhost/grafika_u_rudej
 Author: Filip Jorka
 Author URI: http://localhost
-Description: Motyw WordPress dla portoflio na marki Grafika U Rudej.
+Description: Motyw WordPress dla portfolio na marki Grafika U Rudej.
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: grafika_u_rudej
 */
+
+/* ===== RESET & PODSTAWY ===== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin-top: 0 !important;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #2f2f2f;
+    color: #fff;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#wpadminbar {
+    display: none !important;
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* Large Desktop: 1200px+ */
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Desktop: 992px - 1199px */
+@media (max-width: 1199px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .features {
+        gap: 1.5rem;
+    }
+}
+
+/* Tablet: 768px - 991px */
+@media (max-width: 991px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .hero {
+        padding: 3rem 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature {
+        max-width: 500px;
+        width: 100%;
+    }
+    
+    .portfolio-list {
+        gap: 1.5rem;
+    }
+    
+    nav a {
+        margin: 0 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Large: 576px - 767px */
+@media (max-width: 767px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    section {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+    }
+    
+    .card {
+        padding: 1.2rem;
+    }
+    
+    nav {
+        text-align: center;
+    }
+    
+    nav a {
+        display: inline-block;
+        margin: 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn, button, input[type="submit"] {
+        padding: 0.6em 1.5em;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Small: 480px - 575px */
+@media (max-width: 575px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .portfolio-item,
+    .feature {
+        min-width: 100%;
+    }
+    
+    .contact {
+        padding: 2rem 1rem;
+    }
+    
+    header .logo {
+        font-size: 1.5rem;
+    }
+    
+    nav a {
+        display: block;
+        margin: 0.3rem 0;
+        padding: 0.5rem;
+    }
+}
+
+/* Mobile Extra Small: 320px - 479px */
+@media (max-width: 479px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 0.8rem;
+    }
+    
+    .hero {
+        padding: 2rem 0.8rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+    
+    section {
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .btn, button, input[type="submit"] {
+        padding: 0.5em 1.2em;
+        font-size: 0.9rem;
+        border-radius: 24px;
+    }
+    
+    header .logo {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ===== RESPONSIVE IMAGES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== RESPONSIVE TABLES ===== */
+@media (max-width: 767px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    tr {
+        border: 1px solid #ff6600;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 8px;
+    }
+    
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    td:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #ff6600;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a, a:visited {
+        text-decoration: underline;
+    }
+    
+    .hero {
+        background: none !important;
+    }
+    
+    nav, footer {
+        display: none;
+    }
+}
