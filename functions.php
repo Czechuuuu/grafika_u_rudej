@@ -1,6 +1,5 @@
 <?php
 
-
 function gur_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -17,21 +16,38 @@ function gur_enqueue_styles() {
         [],
         filemtime(get_stylesheet_directory() . '/style.css')
     );
-    
-    // Dodajemy JavaScript dla sticky header
     wp_enqueue_script(
-        'grafika-u-rudej-script',
-        get_template_directory_uri() . '/assets/js/main.js',
+        'sticky-header',
+        get_template_directory_uri() . '/assets/js/sticky-header.js',
         [],
-        filemtime(get_stylesheet_directory() . '/assets/js/main.js'),
+        filemtime(get_stylesheet_directory() . '/assets/js/sticky-header.js'),
+        true
+    );
+    wp_enqueue_script(
+        'smooth-scroll',
+        get_template_directory_uri() . '/assets/js/smooth-scroll.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/smooth-scroll.js'),
+        true
+    );
+    wp_enqueue_script(
+        'scroll-animations',
+        get_template_directory_uri() . '/assets/js/scroll-animations.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/scroll-animations.js'),
+        true
+    );
+    wp_enqueue_script(
+        'mobile-menu',
+        get_template_directory_uri() . '/assets/js/mobile-menu.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/mobile-menu.js'),
         true
     );
 }
 add_action('wp_enqueue_scripts', 'gur_enqueue_styles');
 
-
 function gur_register_portfolio_cpt() {
-
     $labels = [
         'name'               => __( 'Portfolio', 'grafika_u_rudej' ),
         'singular_name'      => __( 'Projekt', 'grafika_u_rudej' ),
@@ -45,7 +61,6 @@ function gur_register_portfolio_cpt() {
         'menu_name'          => __( 'Portfolio', 'grafika_u_rudej' ),
         'archives'           => __( 'Archiwum Portfolio', 'grafika_u_rudej' ),
     ];
-
     register_post_type( 'portfolio', [
         'labels'             => $labels,
         'public'             => true,
@@ -75,7 +90,6 @@ function gur_register_portfolio_taxonomy() {
         'new_item_name'     => __( 'Nazwa nowej kategorii', 'grafika_u_rudej' ),
         'menu_name'         => __( 'Kategorie', 'grafika_u_rudej' ),
     ];
-
     register_taxonomy( 'portfolio_category', [ 'portfolio' ], [
         'hierarchical'      => true,
         'labels'            => $labels,
@@ -87,74 +101,3 @@ function gur_register_portfolio_taxonomy() {
     ] );
 }
 add_action( 'init', 'gur_register_portfolio_taxonomy' );
-
-function gur_fallback_menu() {
-    echo '<ul class="nav-menu">';
-    
-    // Strona O mnie - sprawdź różne możliwe slugi
-    $o_mnie_page = get_page_by_path('o-mnie') ?: get_page_by_title('O mnie');
-    if ($o_mnie_page) {
-        echo '<li><a href="' . esc_url(get_permalink($o_mnie_page->ID)) . '">O mnie</a></li>';
-    }
-    
-    // Strona Usługi - sprawdź różne możliwe slugi
-    $uslugi_page = get_page_by_path('uslugi') ?: get_page_by_title('Usługi');
-    if ($uslugi_page) {
-        echo '<li><a href="' . esc_url(get_permalink($uslugi_page->ID)) . '">Usługi</a></li>';
-    }
-    
-    // Strona Portfolio
-    if (get_post_type_archive_link('portfolio')) {
-        echo '<li><a href="' . esc_url(get_post_type_archive_link('portfolio')) . '">Portfolio</a></li>';
-    }
-    
-    // Strona Kontakt - sprawdź różne możliwe slugi
-    $kontakt_page = get_page_by_path('kontakt') ?: get_page_by_title('Kontakt');
-    if ($kontakt_page) {
-        echo '<li><a href="' . esc_url(get_permalink($kontakt_page->ID)) . '">Kontakt</a></li>';
-    }
-    
-    echo '</ul>';
-}
-
-// Dodatkowa funkcja fallback dla mobile menu
-function gur_mobile_fallback_menu() {
-    echo '<ul class="mobile-nav-menu">';
-    
-    // Strona główna
-    echo '<li><a href="' . esc_url(home_url('/')) . '">Strona główna</a></li>';
-    
-    // Strona O mnie
-    $o_mnie_page = get_page_by_path('o-mnie') ?: get_page_by_title('O mnie');
-    if ($o_mnie_page) {
-        echo '<li><a href="' . esc_url(get_permalink($o_mnie_page->ID)) . '">O mnie</a></li>';
-    } else {
-        echo '<li><a href="' . esc_url(home_url('/o-mnie/')) . '">O mnie</a></li>';
-    }
-    
-    // Strona Usługi
-    $uslugi_page = get_page_by_path('uslugi') ?: get_page_by_title('Usługi');
-    if ($uslugi_page) {
-        echo '<li><a href="' . esc_url(get_permalink($uslugi_page->ID)) . '">Usługi</a></li>';
-    } else {
-        echo '<li><a href="' . esc_url(home_url('/uslugi/')) . '">Usługi</a></li>';
-    }
-    
-    // Strona Portfolio
-    if (get_post_type_archive_link('portfolio')) {
-        echo '<li><a href="' . esc_url(get_post_type_archive_link('portfolio')) . '">Portfolio</a></li>';
-    } else {
-        echo '<li><a href="' . esc_url(home_url('/portfolio/')) . '">Portfolio</a></li>';
-    }
-    
-    // Strona Kontakt
-    $kontakt_page = get_page_by_path('kontakt') ?: get_page_by_title('Kontakt');
-    if ($kontakt_page) {
-        echo '<li><a href="' . esc_url(get_permalink($kontakt_page->ID)) . '">Kontakt</a></li>';
-    } else {
-        echo '<li><a href="' . esc_url(home_url('/kontakt/')) . '">Kontakt</a></li>';
-    }
-    
-    echo '</ul>';
-}
-

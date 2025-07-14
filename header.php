@@ -6,10 +6,8 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-
 <div id="page" class="site">
     <header id="masthead" class="site-header">
         <div class="container">
@@ -27,13 +25,11 @@
                         </a>
                     </p>
                 <?php endif; ?>
-                
                 <?php $description = get_bloginfo('description', 'display');
                 if ($description || is_customize_preview()) : ?>
                     <p class="site-description"><?php echo $description; ?></p>
                 <?php endif; ?>
             </div>
-
             <nav id="site-navigation" class="main-navigation">
                 <?php
                 wp_nav_menu([
@@ -45,8 +41,6 @@
                 ]);
                 ?>
             </nav>
-            
-            <!-- Hamburger menu button -->
             <button class="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -54,11 +48,7 @@
             </button>
         </div>
     </header>
-
-    <!-- Mobile menu overlay -->
     <div class="mobile-menu-overlay"></div>
-    
-    <!-- Mobile menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
             <h3><?php bloginfo('name'); ?></h3>
@@ -76,5 +66,4 @@
             ?>
         </nav>
     </div>
-
     <div id="content" class="site-content">

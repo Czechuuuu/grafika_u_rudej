@@ -1,13 +1,10 @@
 <?php get_header(); ?>
-
 <main class="front-page">
-
-  <section class="hero">
-    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero.jpg" alt="Twoje zdjęcie">
-    <h1>Twoje hasło przewodnie</h1>
+  <section class="hero hero-top">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="Twoje zdjęcie">
+    <h1>Usługi graficzne i social media, które realnie wspierają Twój biznes</h1>
     <a href="<?php echo site_url('/portfolio'); ?>" class="btn">Zobacz portfolio</a>
   </section>
-
   <section class="featured-projects">
     <h2>Wybrane projekty</h2>
     <div class="projects-grid">
@@ -30,17 +27,15 @@
       ?>
     </div>
   </section>
-
   <section class="about-me">
     <h2>O mnie</h2>
     <div class="about-content">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/o-mnie.jpg" alt="O mnie">
       <div>
-        <p>Krótki opis o Tobie. Możesz edytować ten tekst w pliku front-page.php lub dodać pole ACF.</p>
+        <p>👉 Tworzę skuteczne grafiki i prowadzę social media dla firm i marek, które chcą się wyróżniać i przyciągać klientów. Bez sztucznych obietnic – z doświadczeniem, pomysłem i konkretnym efektem.</p>
       </div>
     </div>
   </section>
-
   <section class="services">
     <h2>Usługi</h2>
     <div class="services-list">
@@ -54,18 +49,8 @@
         <h3>Strony internetowe</h3>
         <p>Opis usługi...</p>
       </div>
-      <!-- Dodaj kolejne usługi -->
     </div>
   </section>
     </div>
   </section>
-
-  <!-- KONTAKT / CTA -->
-  <section class="contact-cta">
-    <h2>Masz pytania? Napisz do mnie!</h2>
-    <a href="<?php echo site_url('/kontakt'); ?>" class="btn">Kontakt</a>
-  </section>
-
-</main>
-
 <?php get_footer(); ?>

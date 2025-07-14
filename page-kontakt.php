@@ -8,7 +8,6 @@ get_header(); ?>
                 <p>Masz projekt do realizacji? Napisz do mnie - odpowiem tak szybko jak to możliwe!</p>
             </div>
         </div>
-
         <div class="contact-content">
             <div class="contact-form-section">
                 <h2>Napisz do mnie</h2>
@@ -34,49 +33,7 @@ get_header(); ?>
                     <button type="submit" class="btn">Wyślij wiadomość</button>
                 </form>
             </div>
-
-            <div class="contact-info-section">
-                <h2>Informacje kontaktowe</h2>
-                <ul class="contact-info-list">
-                    <li class="contact-info-item">
-                        <div class="contact-info-icon">📧</div>
-                        <div class="contact-info-content">
-                            <h4>E-mail</h4>
-                            <p><a href="mailto:kontakt@twojadomena.pl">kontakt@twojadomena.pl</a></p>
-                        </div>
-                    </li>
-                    <li class="contact-info-item">
-                        <div class="contact-info-icon">📱</div>
-                        <div class="contact-info-content">
-                            <h4>Telefon</h4>
-                            <p><a href="tel:123456789">123 456 789</a></p>
-                        </div>
-                    </li>
-                    <li class="contact-info-item">
-                        <div class="contact-info-icon">🕒</div>
-                        <div class="contact-info-content">
-                            <h4>Godziny pracy</h4>
-                            <p>Poniedziałek - Piątek<br>9:00 - 17:00</p>
-                        </div>
-                    </li>
-                    <li class="contact-info-item">
-                        <div class="contact-info-icon">⚡</div>
-                        <div class="contact-info-content">
-                            <h4>Czas odpowiedzi</h4>
-                            <p>Zazwyczaj do 24 godzin</p>
-                        </div>
-                    </li>
-                    <li class="contact-info-item">
-                        <div class="contact-info-icon">📍</div>
-                        <div class="contact-info-content">
-                            <h4>Lokalizacja</h4>
-                            <p>Warszawa, Polska<br>Pracuję zdalnie</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </div>
-
         <div class="contact-social">
             <h3>Znajdź mnie również tutaj</h3>
             <div class="social-links">
@@ -88,5 +45,4 @@ get_header(); ?>
         </div>
     </div>
 </div>
-
 <?php get_footer(); ?> 
