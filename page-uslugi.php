@@ -1,10 +1,4 @@
-
-
 <?php
-/*
-Template Name: Usługi
-*/
-
 get_header(); ?>
 <div class="uslugi-wrapper fade-in">
   <h1 class="uslugi-title">Moje usługi</h1>

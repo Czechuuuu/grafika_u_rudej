@@ -35,11 +35,6 @@
             </div>
 
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <span class="menu-toggle-icon"></span>
-                    <span class="screen-reader-text">Menu</span>
-                </button>
-                
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'main_menu',
@@ -50,7 +45,36 @@
                 ]);
                 ?>
             </nav>
+            
+            <!-- Hamburger menu button -->
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3><?php bloginfo('name'); ?></h3>
+            <button class="mobile-menu-close" aria-label="Zamknij menu">×</button>
+        </div>
+        <nav class="mobile-navigation">
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'main_menu',
+                'menu_id'        => 'mobile-menu',
+                'menu_class'     => 'mobile-nav-menu',
+                'container'      => false,
+                'fallback_cb'    => 'gur_mobile_fallback_menu',
+            ]);
+            ?>
+        </nav>
+    </div>
 
     <div id="content" class="site-content">

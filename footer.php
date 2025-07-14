@@ -1,11 +1,9 @@
-    </div><!-- #content -->
-
     <footer id="colophon" class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><?php bloginfo('name'); ?></h3>
-                    <p>Profesjonalne usługi graficzne i projektowe</p>
+                    <p>Profesjonalne usługi graficzne i projektowe. Tworzę unikalne projekty, które wyróżniają się na rynku.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="LinkedIn">
                             <span class="icon">💼</span>
@@ -14,7 +12,7 @@
                             <span class="icon">🎨</span>
                         </a>
                         <a href="#" class="social-link" aria-label="Instagram">
-                            <span class="icon">📱</span>
+                            <span class="icon">📷</span>
                         </a>
                         <a href="#" class="social-link" aria-label="Email">
                             <span class="icon">📧</span>
@@ -22,17 +20,7 @@
                     </div>
                 </div>
 
-                <div class="footer-section">
-                    <h3>Nawigacja</h3>
-                    <?php
-                    wp_nav_menu([
-                        'theme_location' => 'footer_menu',
-                        'menu_class'     => 'footer-menu',
-                        'container'      => false,
-                        'fallback_cb'    => 'gur_footer_fallback_menu',
-                    ]);
-                    ?>
-                </div>
+
 
                 <div class="footer-section">
                     <h3>Usługi</h3>
@@ -65,7 +53,6 @@
             </div>
         </div>
     </footer>
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

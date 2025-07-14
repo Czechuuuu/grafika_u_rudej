@@ -1,10 +1,4 @@
-
-
 <?php
-/*
-Template Name: O mnie
-*/
-
 get_header(); ?>
 <div class="o-mnie-wrapper fade-in">
   <h1 class="o-mnie-title">O mnie</h1>

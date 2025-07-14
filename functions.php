@@ -1,4 +1,35 @@
 <?php
+
+
+function gur_setup() {
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    register_nav_menus([
+        'main_menu'   => __('Menu główne',  'grafika_u_rudej'),
+    ]);
+}
+add_action('after_setup_theme', 'gur_setup');
+
+function gur_enqueue_styles() {
+    wp_enqueue_style(
+        'grafika-u-rudej-style',
+        get_stylesheet_uri(),
+        [],
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
+    
+    // Dodajemy JavaScript dla sticky header
+    wp_enqueue_script(
+        'grafika-u-rudej-script',
+        get_template_directory_uri() . '/assets/js/main.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/main.js'),
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'gur_enqueue_styles');
+
+
 function gur_register_portfolio_cpt() {
 
     $labels = [
@@ -57,46 +88,73 @@ function gur_register_portfolio_taxonomy() {
 }
 add_action( 'init', 'gur_register_portfolio_taxonomy' );
 
-function gur_register_menus() {
-    register_nav_menus( [
-        'main_menu'   => __( 'Menu główne',  'grafika_u_rudej' ),
-        'footer_menu' => __( 'Menu w stopce', 'grafika_u_rudej' ),
-    ] );
-}
-add_action( 'after_setup_theme', 'gur_register_menus' );
-
-add_theme_support( 'post-thumbnails' );
-
-function gur_enqueue_assets() {
-    $theme_version = '1.0';
-
-    // Google Fonts
-    wp_enqueue_style('gur-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap', [], null);
-
-    // Główny arkusz stylów motywu (style.css)
-    wp_enqueue_style('gur-main-style', get_stylesheet_uri(), [], $theme_version);
-
-    // Globalne style, ładowane zawsze
-    wp_enqueue_style('gur-global', get_template_directory_uri() . '/assets/css/global.css', ['gur-main-style'], $theme_version);
-    wp_enqueue_style('gur-header', get_template_directory_uri() . '/assets/css/header.css', ['gur-global'], $theme_version);
-    wp_enqueue_style('gur-footer', get_template_directory_uri() . '/assets/css/footer.css', ['gur-global'], $theme_version);
-
-    // Warunkowe ładowanie stylów dla konkretnych stron
-    if (is_front_page()) {
-        wp_enqueue_style('gur-front-page', get_template_directory_uri() . '/assets/css/front-page.css', ['gur-global'], $theme_version);
-    } elseif (is_page_template('page-kontakt.php') || is_page('kontakt')) {
-        wp_enqueue_style('gur-contact', get_template_directory_uri() . '/assets/css/page-kontakt.css', ['gur-global'], $theme_version);
-    } elseif (is_page_template('page-o-mnie.php') || is_page('o-mnie')) {
-        wp_enqueue_style('gur-about', get_template_directory_uri() . '/assets/css/page-o-mnie.css', ['gur-global'], $theme_version);
-    } elseif (is_page_template('page-uslugi.php') || is_page('uslugi')) {
-        wp_enqueue_style('gur-services', get_template_directory_uri() . '/assets/css/page-uslugi.css', ['gur-global'], $theme_version);
-    } elseif (is_post_type_archive('portfolio')) {
-        wp_enqueue_style('gur-portfolio-archive', get_template_directory_uri() . '/assets/css/archive-portfolio.css', ['gur-global'], $theme_version);
-    } elseif (is_singular('portfolio')) {
-        wp_enqueue_style('gur-single-portfolio', get_template_directory_uri() . '/assets/css/single-portfolio.css', ['gur-global'], $theme_version);
+function gur_fallback_menu() {
+    echo '<ul class="nav-menu">';
+    
+    // Strona O mnie - sprawdź różne możliwe slugi
+    $o_mnie_page = get_page_by_path('o-mnie') ?: get_page_by_title('O mnie');
+    if ($o_mnie_page) {
+        echo '<li><a href="' . esc_url(get_permalink($o_mnie_page->ID)) . '">O mnie</a></li>';
     }
-
-    // Główny plik JavaScript
-    wp_enqueue_script('gur-main-js', get_template_directory_uri() . '/assets/js/main.js', [], $theme_version, true);
+    
+    // Strona Usługi - sprawdź różne możliwe slugi
+    $uslugi_page = get_page_by_path('uslugi') ?: get_page_by_title('Usługi');
+    if ($uslugi_page) {
+        echo '<li><a href="' . esc_url(get_permalink($uslugi_page->ID)) . '">Usługi</a></li>';
+    }
+    
+    // Strona Portfolio
+    if (get_post_type_archive_link('portfolio')) {
+        echo '<li><a href="' . esc_url(get_post_type_archive_link('portfolio')) . '">Portfolio</a></li>';
+    }
+    
+    // Strona Kontakt - sprawdź różne możliwe slugi
+    $kontakt_page = get_page_by_path('kontakt') ?: get_page_by_title('Kontakt');
+    if ($kontakt_page) {
+        echo '<li><a href="' . esc_url(get_permalink($kontakt_page->ID)) . '">Kontakt</a></li>';
+    }
+    
+    echo '</ul>';
 }
-add_action('wp_enqueue_scripts', 'gur_enqueue_assets');
+
+// Dodatkowa funkcja fallback dla mobile menu
+function gur_mobile_fallback_menu() {
+    echo '<ul class="mobile-nav-menu">';
+    
+    // Strona główna
+    echo '<li><a href="' . esc_url(home_url('/')) . '">Strona główna</a></li>';
+    
+    // Strona O mnie
+    $o_mnie_page = get_page_by_path('o-mnie') ?: get_page_by_title('O mnie');
+    if ($o_mnie_page) {
+        echo '<li><a href="' . esc_url(get_permalink($o_mnie_page->ID)) . '">O mnie</a></li>';
+    } else {
+        echo '<li><a href="' . esc_url(home_url('/o-mnie/')) . '">O mnie</a></li>';
+    }
+    
+    // Strona Usługi
+    $uslugi_page = get_page_by_path('uslugi') ?: get_page_by_title('Usługi');
+    if ($uslugi_page) {
+        echo '<li><a href="' . esc_url(get_permalink($uslugi_page->ID)) . '">Usługi</a></li>';
+    } else {
+        echo '<li><a href="' . esc_url(home_url('/uslugi/')) . '">Usługi</a></li>';
+    }
+    
+    // Strona Portfolio
+    if (get_post_type_archive_link('portfolio')) {
+        echo '<li><a href="' . esc_url(get_post_type_archive_link('portfolio')) . '">Portfolio</a></li>';
+    } else {
+        echo '<li><a href="' . esc_url(home_url('/portfolio/')) . '">Portfolio</a></li>';
+    }
+    
+    // Strona Kontakt
+    $kontakt_page = get_page_by_path('kontakt') ?: get_page_by_title('Kontakt');
+    if ($kontakt_page) {
+        echo '<li><a href="' . esc_url(get_permalink($kontakt_page->ID)) . '">Kontakt</a></li>';
+    } else {
+        echo '<li><a href="' . esc_url(home_url('/kontakt/')) . '">Kontakt</a></li>';
+    }
+    
+    echo '</ul>';
+}
+

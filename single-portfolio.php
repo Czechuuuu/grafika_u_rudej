@@ -1,5 +1,3 @@
-
-
 <?php get_header(); ?>
 <div class="single-portfolio-main">
   <?php if ( has_post_thumbnail() ) : ?>
@@ -8,7 +6,6 @@
   <h1 class="single-portfolio-title"><?php the_title(); ?></h1>
   <div class="single-portfolio-desc"><?php the_content(); ?></div>
   <?php
-  // Przykładowa galeria (jeśli masz ACF lub inną galerię, tu można ją podpiąć)
   if ( function_exists('get_field') && get_field('galeria') ) :
     $galeria = get_field('galeria');
     echo '<div class="single-portfolio-gallery">';

@@ -1,10 +1,7 @@
-
-
 <?php get_header(); ?>
 <div class="portfolio-archive-wrapper fade-in">
   <h1 class="archive-title">Portfolio</h1>
   <div class="portfolio-filters">
-    <!-- Przykładowe filtry, można rozbudować dynamicznie -->
     <button class="btn active">Wszystkie</button>
     <button class="btn">Grafika</button>
     <button class="btn">Strony www</button>
