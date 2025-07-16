@@ -15,20 +15,20 @@
                     <div class="social-links">
                         <p>📧 shestiger@gmail.com</p>
                     </div>
-                    <span class="footer-social-inline">
-                        <a href="https://www.facebook.com/Grafiki.u.Rudej" class="social-link" aria-label="Facebook">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facebook.webp" alt="Facebook" class="social-photo">
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/Grafiki.u.Rudej" class="footer-social-btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facebook.webp" alt="Facebook" class="footer-social-icon">
                         </a>
-                        <a href="https://www.behance.net/grafikiurudej" class="social-link" aria-label="Behance">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/behance.webp" alt="Behance" class="social-photo">
+                        <a href="https://www.behance.net/grafikiurudej" class="footer-social-btn" aria-label="Behance" target="_blank" rel="noopener">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/behance.webp" alt="Behance" class="footer-social-icon">
                         </a>
-                        <a href="https://www.instagram.com/grafiki.u.rudej/" class="social-link" aria-label="Instagram">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram.webp" alt="Instagram" class="social-photo">
+                        <a href="https://www.instagram.com/grafiki.u.rudej/" class="footer-social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram.webp" alt="Instagram" class="footer-social-icon">
                         </a>
-                        <a href="mailto:shestiger@gmail.com" class="social-link" aria-label="Email">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail.webp" alt="Email" class="social-photo">
+                        <a href="mailto:shestiger@gmail.com" class="footer-social-btn" aria-label="Email">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail.webp" alt="Email" class="footer-social-icon">
                         </a>
-                    </span>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">

@@ -28,7 +28,7 @@ get_header(); ?>
                     </div>
                     <div class="form-group form-group-full">
                         <label for="message">Wiadomość *</label>
-                        <textarea id="message" name="message" placeholder="Opisz swój projekt lub zadaj pytanie..." rows="6" required></textarea>
+                        <input type="message" name="message" placeholder="Opisz swój projekt lub zadaj pytanie..." rows="6" required>
                     </div>
                     <button type="submit" class="btn">Wyślij wiadomość</button>
                 </form>

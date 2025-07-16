@@ -1,0 +1,280 @@
+/* Pojedynczy projekt portfolio - nowoczesny design */
+.single-portfolio-hero {
+    background: linear-gradient(135deg, #f4a023 0%, #ff6b35 100%);
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.single-portfolio-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="dots" width="100" height="20" patternUnits="userSpaceOnUse"><circle cx="25" cy="5" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="15" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="20" fill="url(%23dots)"/></svg>') repeat;
+    z-index: 1;
+}
+
+.single-portfolio-hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+.single-portfolio-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    opacity: 0.9;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+/* Główna treść projektu */
+.single-portfolio-main {
+    background: #fff;
+    padding: 100px 0;
+}
+
+.project-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.project-description {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(30, 30, 30, 0.1);
+    border-left: 5px solid #f4a023;
+}
+
+.project-description h2 {
+    color: #1e1e1e;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.project-description p {
+    color: #333;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.project-description ul {
+    color: #333;
+    line-height: 1.6;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.project-description li {
+    margin-bottom: 8px;
+}
+
+.project-sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(30, 30, 30, 0.1);
+}
+
+.project-info h3 {
+    color: #1e1e1e;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(244, 160, 35, 0.2);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #666;
+}
+
+.info-value {
+    color: #1e1e1e;
+    font-weight: 500;
+}
+
+.project-tech {
+    margin-top: 30px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background: #f4a023;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Galeria projektu */
+.project-gallery {
+    margin-bottom: 80px;
+}
+
+.project-gallery h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e1e1e;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.project-gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #f4a023;
+    border-radius: 2px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 30, 30, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Nawigacja między projektami */
+.project-navigation {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 60px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #1e1e1e;
+    padding: 20px 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(30, 30, 30, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-item:hover {
+    transform: translateY(-2px);
+    border-color: #f4a023;
+    box-shadow: 0 15px 40px rgba(244, 160, 35, 0.2);
+}
+
+.nav-arrow {
+    font-size: 1.5rem;
+    color: #f4a023;
+}
+
+.nav-text {
+    text-align: center;
+}
+
+.nav-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.nav-title {
+    font-weight: 700;
+    color: #1e1e1e;
+}
+
+.back-to-portfolio {
+    background: #f4a023;
+    color: #fff;
+    border: 2px solid #f4a023;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-to-portfolio:hover {
+    background: transparent;
+    color: #f4a023;
+    transform: translateY(-2px);
+} 

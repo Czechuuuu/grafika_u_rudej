@@ -9,43 +9,31 @@ function gur_setup() {
 }
 add_action('after_setup_theme', 'gur_setup');
 
-function gur_enqueue_styles() {
-    wp_enqueue_style(
-        'grafika-u-rudej-style',
-        get_stylesheet_uri(),
-        [],
-        filemtime(get_stylesheet_directory() . '/style.css')
-    );
-    wp_enqueue_script(
-        'sticky-header',
-        get_template_directory_uri() . '/assets/js/sticky-header.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/sticky-header.js'),
-        true
-    );
-    wp_enqueue_script(
-        'smooth-scroll',
-        get_template_directory_uri() . '/assets/js/smooth-scroll.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/smooth-scroll.js'),
-        true
-    );
-    wp_enqueue_script(
-        'scroll-animations',
-        get_template_directory_uri() . '/assets/js/scroll-animations.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/scroll-animations.js'),
-        true
-    );
-    wp_enqueue_script(
-        'mobile-menu',
-        get_template_directory_uri() . '/assets/js/mobile-menu.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/mobile-menu.js'),
-        true
-    );
+function grafika_u_rudej_enqueue_styles() {
+    wp_enqueue_style('grafika-global', get_template_directory_uri() . '/assets/css/global.css');
+    wp_enqueue_style('grafika-header', get_template_directory_uri() . '/assets/css/header.css');
+    wp_enqueue_style('grafika-footer', get_template_directory_uri() . '/assets/css/footer.css');
+
+    if (is_front_page()) {
+        wp_enqueue_style('grafika-front-page', get_template_directory_uri() . '/assets/css/front-page.css');
+    }
+    if (is_page('o-mnie')) {
+        wp_enqueue_style('grafika-page-o-mnie', get_template_directory_uri() . '/assets/css/page-o-mnie.css');
+    }
+    if (is_page('uslugi')) {
+        wp_enqueue_style('grafika-page-uslugi', get_template_directory_uri() . '/assets/css/page-uslugi.css');
+    }
+    if (is_page('kontakt')) {
+        wp_enqueue_style('grafika-page-kontakt', get_template_directory_uri() . '/assets/css/page-kontakt.css');
+    }
+    if (is_post_type_archive('portfolio')) {
+        wp_enqueue_style('grafika-archive-portfolio', get_template_directory_uri() . '/assets/css/archive-portfolio.css');
+    }
+    if (is_singular('portfolio')) {
+        wp_enqueue_style('grafika-single-portfolio', get_template_directory_uri() . '/assets/css/single-portfolio.css');
+    }
 }
-add_action('wp_enqueue_scripts', 'gur_enqueue_styles');
+add_action('wp_enqueue_scripts', 'grafika_u_rudej_enqueue_styles');
 
 function gur_register_portfolio_cpt() {
     $labels = [

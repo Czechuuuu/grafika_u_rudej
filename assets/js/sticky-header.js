@@ -1,24 +1,56 @@
+// Sticky header z efektami scroll - bez mobile menu
 document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('header');
+    const header = document.querySelector('.site-header');
     let lastScrollTop = 0;
     
-    window.addEventListener('scroll', function() {
+    // Sticky header effect
+    function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
         if (scrollTop > 100) {
-            header.classList.add('sticky');
+            header.classList.add('scrolled');
         } else {
-            header.classList.remove('sticky');
+            header.classList.remove('scrolled');
         }
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        lastScrollTop = scrollTop;
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }
+    
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
     });
+    
+    // Throttled scroll event
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(handleScroll);
+            ticking = true;
+        }
+    }
+    
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset === 0) {
-            header.style.transform = 'translateY(0)';
-        }
+        ticking = false;
+        requestTick();
     });
+    
+    // Initial check
+    handleScroll();
 }); 
