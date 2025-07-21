@@ -1,7 +1,5 @@
-// Scroll animations inspirowane GreenParrot
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Intersection Observer dla animacji fade-in
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Elementy do animowania
     const elementsToAnimate = document.querySelectorAll(
         '.featured-projects h2, .about-me h2, .services h2, ' +
         '.project-item, .service, .about-content img, .about-content p'
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
     
-    // Parallax effect dla hero sekcji
     const hero = document.querySelector('.hero');
     if (hero) {
         window.addEventListener('scroll', function() {
@@ -41,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Hover effects dla project items
     const projectItems = document.querySelectorAll('.project-item');
     projectItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
@@ -53,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth reveal animation dla sekcji
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
         section.style.opacity = '0';
@@ -75,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionObserver.observe(section);
     });
     
-    // Dodaj efekt hover do przycisków
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(btn => {
         btn.addEventListener('mouseenter', function() {

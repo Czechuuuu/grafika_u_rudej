@@ -36,8 +36,7 @@
                     <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Wszystkie prawa zastrzeżone.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="<?php echo site_url('/polityka-prywatnosci'); ?>">Polityka prywatności</a>
-                    <a href="<?php echo site_url('/regulamin'); ?>">Regulamin</a>
+                    <p>Wykonano przez <a href="https://develoart.com" target="_blank" rel="noopener">Develoart</a></p>
                 </div>
             </div>
         </div>

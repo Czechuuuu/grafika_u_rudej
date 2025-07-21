@@ -1,9 +1,7 @@
-// Sticky header z efektami scroll - bez mobile menu
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.site-header');
     let lastScrollTop = 0;
     
-    // Sticky header effect
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
     
-    // Smooth scroll for anchor links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -37,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Throttled scroll event
     let ticking = false;
     function requestTick() {
         if (!ticking) {
@@ -51,6 +47,5 @@ document.addEventListener('DOMContentLoaded', function() {
         requestTick();
     });
     
-    // Initial check
     handleScroll();
 }); 

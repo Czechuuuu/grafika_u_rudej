@@ -1,11 +1,13 @@
 /*
 Theme Name: grafika_u_rudej
-Theme URI: http://localhost/grafika_u_rudej
+Theme URI: https://grafikiurudej.com
 Author: Filip Jorka
-Author URI: http://localhost
+Author URI: https://grafikiurudej.com
 Description: Motyw WordPress dla portfolio na marki Grafika U Rudej.
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: grafika_u_rudej
 */
+
+#wpadminbar {display: none !important;}

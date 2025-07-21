@@ -1,16 +1,55 @@
 <?php
 get_header(); ?>
-<div class="o-mnie-wrapper fade-in">
-  <h1 class="o-mnie-title">O mnie</h1>
-  <img src="/wp-content/themes/grafika_u_rudej/assets/images/avatar.jpg" alt="Twoje zdjęcie" class="o-mnie-foto">
-  <div class="o-mnie-tresc">
-    <p>Cześć! Nazywam się Filip Jorka i od lat tworzę projekty graficzne oraz strony internetowe. Łączę kreatywność z technologią, by realizować wizje moich klientów.</p>
+<div class="about-hero fade-in">
+  <h1>O mnie</h1>
+  <p>Poznaj mnie bardziej!</p>
+</div>
+<div class="about-section">
+  <div class="about-container">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar.jpg" alt="Twoje zdjęcie">
+      </div>
+      <div class="about-text">
+        <p>Cześć! Nazywam się Filip Jorka i od lat tworzę projekty graficzne oraz strony internetowe. Łączę kreatywność z technologią, by realizować wizje moich klientów.</p>
+        <div class="skills-grid">
+          <div class="skill-item">Kreatywność</div>
+          <div class="skill-item">Terminowość</div>
+          <div class="skill-item">Indywidualne podejście</div>
+          <div class="skill-item">Doświadczenie</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="o-mnie-cechy">
-    <div class="o-mnie-cecha">Kreatywność</div>
-    <div class="o-mnie-cecha">Terminowość</div>
-    <div class="o-mnie-cecha">Indywidualne podejście</div>
-    <div class="o-mnie-cecha">Doświadczenie</div>
+</div>
+
+<div class="why-me-section">
+  <div class="why-me-container">
+    <h2>Dlaczego ja?</h2>
+    <div class="why-me-grid">
+      <div class="why-me-item">
+        <span class="why-me-icon">✅</span>
+        <p>Ponad 12 lat doświadczenia w projektowaniu graficznym</p>
+      </div>
+      <div class="why-me-item">
+        <span class="why-me-icon">✅</span>
+        <p>Ludzkie podejście – tłumaczę bez marketingowego żargonu</p>
+      </div>
+      <div class="why-me-item">
+        <span class="why-me-icon">✅</span>
+        <p>Nie znikam po przyjęciu zlecenia – pracuję terminowo i rzetelnie</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-cta">
+  <div class="about-container">
+    <h3>Chcesz poznać mnie lepiej?</h3>
+    <p>Odwiedź mój prywatny profil na Facebooku i zobacz więcej z mojego życia!</p>
+    <a href="https://www.facebook.com/dominika.rotkegel" target="_blank" class="btn facebook-btn">
+      📘 Odwiedź mój Facebook
+    </a>
   </div>
 </div>
 <?php get_footer(); ?> 

@@ -1,4 +1,3 @@
-/* Pojedynczy projekt portfolio - nowoczesny design */
 .single-portfolio-hero {
     background: linear-gradient(135deg, #f4a023 0%, #ff6b35 100%);
     color: #fff;
@@ -46,7 +45,6 @@
     font-size: 1rem;
 }
 
-/* Główna treść projektu */
 .single-portfolio-main {
     background: #fff;
     padding: 100px 0;
@@ -155,7 +153,6 @@
     font-weight: 600;
 }
 
-/* Galeria projektu */
 .project-gallery {
     margin-bottom: 80px;
 }
@@ -205,7 +202,6 @@
     object-fit: cover;
 }
 
-/* Nawigacja między projektami */
 .project-navigation {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 60px 0;

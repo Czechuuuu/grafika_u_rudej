@@ -1,9 +1,16 @@
 <?php get_header(); ?>
 <main class="front-page">
   <section class="hero hero-top">
-    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="Twoje zdjęcie">
-    <h1>Usługi graficzne i social media, które realnie wspierają Twój biznes</h1>
-    <a href="<?php echo site_url('/portfolio'); ?>" class="btn">Zobacz portfolio</a>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Usługi graficzne i social media, które realnie wspierają Twój biznes</h1>
+        </div>
+        <div class="hero-image">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="Grafika U Rudej">
+        </div>
+      </div>
+    </div>
   </section>
   <section class="featured-projects">
     <h2>Wybrane projekty</h2>
@@ -33,6 +40,7 @@
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/o-mnie.jpg" alt="O mnie">
       <div>
         <p>👉 Tworzę skuteczne grafiki i prowadzę social media dla firm i marek, które chcą się wyróżniać i przyciągać klientów. Bez sztucznych obietnic – z doświadczeniem, pomysłem i konkretnym efektem.</p>
+        <a href="<?php echo site_url('/o-mnie'); ?>" class="btn">Poznaj mnie lepiej</a>
       </div>
     </div>
   </section>
