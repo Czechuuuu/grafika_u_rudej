@@ -9,7 +9,7 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
 }
 ?>
 
-<div class="contact-hero">
+<div class="contact-hero animate-on-scroll">
     <div class="contact-hero-content">
         <h1>Skontaktuj się ze mną</h1>
         <p>Masz projekt do realizacji? Napisz do mnie - odpowiem tak szybko jak to możliwe!</p>
@@ -19,12 +19,12 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
 <div class="contact-page">
     <div class="container">
         <div class="contact-content">
-            <div class="contact-form-section">
+            <div class="contact-form-section animate-on-scroll fade-in-left delay-200">
                 <h2>Napisz do mnie</h2>
                 <form class="contact-form" method="post" action="">
                     <?php wp_nonce_field('contact_form_nonce', 'contact_nonce'); ?>
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group animate-on-scroll fade-in-up delay-300">
                             <label for="name">Imię i nazwisko *</label>
                             <input type="text" id="name" name="name" placeholder="Twoje imię i nazwisko" value="<?php echo isset($_POST['name']) ? esc_attr($_POST['name']) : ''; ?>" required>
                         </div>

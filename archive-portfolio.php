@@ -1,15 +1,15 @@
 <?php get_header(); ?>
-<div class="portfolio-archive-wrapper fade-in">
-  <h1 class="archive-title">Portfolio</h1>
-  <div class="portfolio-filters">
+<div class="portfolio-archive-wrapper">
+  <h1 class="archive-title animate-on-scroll">Portfolio</h1>
+  <div class="portfolio-filters animate-on-scroll" data-delay="200">
     <button class="btn active">Wszystkie</button>
     <button class="btn">Grafika</button>
     <button class="btn">Strony www</button>
     <button class="btn">Logo</button>
   </div>
   <div class="portfolio-grid">
-    <?php while ( have_posts() ) : the_post(); ?>
-      <div class="portfolio-item fade-in">
+    <?php $item_delay = 300; while ( have_posts() ) : the_post(); ?>
+      <div class="portfolio-item animate-on-scroll" data-delay="<?php echo $item_delay; ?>">
         <a href="<?php the_permalink(); ?>">
           <?php if ( has_post_thumbnail() ) : ?>
             <?php the_post_thumbnail('large'); ?>
@@ -21,7 +21,7 @@
           <a href="<?php the_permalink(); ?>" class="btn">Zobacz projekt</a>
         </div>
       </div>
-    <?php endwhile; ?>
+    <?php $item_delay += 100; endwhile; ?>
   </div>
 </div>
 <?php get_footer(); ?>

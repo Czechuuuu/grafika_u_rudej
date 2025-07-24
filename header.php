@@ -32,7 +32,29 @@
                 ]);
                 ?>
             </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="hamburger" aria-label="Menu mobilne">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Zamknij menu">&times;</button>
+        <?php
+        wp_nav_menu([
+            'theme_location' => 'main_menu',
+            'menu_class'     => 'mobile-nav-menu',
+            'container'      => false,
+            'fallback_cb'    => 'gur_fallback_menu',
+            'exclude'        => get_option('page_on_front'),
+        ]);
+        ?>
+    </nav>
 
     <div id="content" class="site-content">

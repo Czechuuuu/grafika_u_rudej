@@ -372,20 +372,6 @@
     font-size: 1rem;
 }
 
-@media (max-width: 768px) {
-    .social-media-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-    .social-media-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-}
-
 .social-media-cta {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;

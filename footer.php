@@ -1,7 +1,7 @@
     <footer id="colophon" class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section animate-on-scroll">
                     <h3><?php bloginfo('name'); ?></h3>
                     <div class="footer-content-row">
                         <div class="footer-logo">
@@ -10,7 +10,7 @@
                         <p>Profesjonalne usługi graficzne i projektowe. Tworzę unikalne projekty, które wyróżniają się na rynku.</p>
                     </div>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section animate-on-scroll" data-delay="200">
                     <h3>Kontakt</h3>
                     <div class="social-links">
                         <p>📧 shestiger@gmail.com</p>

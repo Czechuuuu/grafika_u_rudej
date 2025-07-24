@@ -1,27 +1,27 @@
 <?php
 get_header(); ?>
-<div class="services-hero fade-in">
+<div class="services-hero animate-on-scroll">
   <h1>Moje usługi</h1>
   <p>Profesjonalne usługi graficzne dostosowane do Twoich potrzeb</p>
 </div>
 <div class="services-main">
   <div class="services-container">
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card animate-on-scroll" data-delay="200">
         <div class="service-content">
           <h3>Logo i identyfikacja wizualna</h3>
           <p>Zaprojektuję logo, które odda charakter Twojej marki. Prosto, estetycznie i bez banału.</p>
           <a href="<?php echo home_url('/kontakt'); ?>" class="btn">Zamów projekt</a>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card animate-on-scroll" data-delay="400">
         <div class="service-content">
           <h3>Materiały do druku</h3>
           <p>Ulotki, plakaty, wizytówki, zaproszenia, papier firmowy – wszystko w jednym stylu, gotowe do druku.</p>
           <a href="<?php echo home_url('/kontakt'); ?>" class="btn">Zamów projekt</a>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card animate-on-scroll" data-delay="600">
         <div class="service-content">
           <h3>Grafiki do social mediów</h3>
           <p>Nie tylko ładne obrazki – projektuję grafiki, które zatrzymują uwagę i pasują do algorytmu.</p>

@@ -118,6 +118,8 @@ section {
 
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .text-center {
