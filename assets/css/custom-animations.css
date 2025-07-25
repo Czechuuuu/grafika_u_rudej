@@ -1,0 +1,260 @@
+/* ================================================
+   CUSTOM-ANIMATIONS.CSS - Animacje komponentów
+   ================================================ */
+
+/* ========================================
+   1. HERO SECTION ANIMATIONS
+   ======================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(244, 160, 35, 0.1), transparent);
+    animation: heroShine 3s ease-in-out 1s;
+}
+
+@keyframes heroShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ========================================
+   2. PORTFOLIO ITEM ANIMATIONS
+   ======================================== */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   3. BUTTON ANIMATIONS
+   ======================================== */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 160, 35, 0.3);
+}
+
+/* ========================================
+   4. SERVICE ICONS ANIMATIONS
+   ======================================== */
+.service .icon {
+    display: inline-block;
+    font-size: 3rem;
+    transition: all 0.3s ease;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.service:hover .icon {
+    transform: scale(1.2) rotate(10deg);
+    animation-play-state: paused;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ========================================
+   5. IMAGE OVERLAY EFFECTS
+   ======================================== */
+.image-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+}
+
+.image-overlay:hover::before {
+    left: 150%;
+}
+
+/* ========================================
+   6. PROGRESS BAR ANIMATIONS
+   ======================================== */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f4a023, #ff6b35);
+    width: 0;
+    transition: width 2s ease-out;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ========================================
+   7. SOCIAL MEDIA ICONS
+   ======================================== */
+.social-icon {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    animation: socialBounce 0.6s ease;
+}
+
+@keyframes socialBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* ========================================
+   8. TEXT REVEAL ANIMATION
+   ======================================== */
+.text-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.text-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f4a023;
+    animation: textReveal 1.5s ease-out forwards;
+}
+
+@keyframes textReveal {
+    0% { left: 0; }
+    50% { left: 0; right: 0; }
+    100% { left: 100%; }
+}
+
+/* ========================================
+   9. LOADING ANIMATION
+   ======================================== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeOut 1s ease-out 2s forwards;
+}
+
+.loading-screen::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #f4a023;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ========================================
+   10. RESPONSIVE ADJUSTMENTS
+   ======================================== */
+@media (max-width: 768px) {
+    .portfolio-item:hover {
+        transform: translateY(-3px) scale(1.01);
+    }
+    
+    .service:hover .icon {
+        transform: scale(1.1);
+    }
+    
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+}
