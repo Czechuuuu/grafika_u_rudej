@@ -91,10 +91,15 @@
 
 .pricing-note {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #666;
-  margin-top: 24px;
+  margin-top: 30px;
   font-style: italic;
+  line-height: 1.6;
+  background: rgba(244, 160, 35, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #f4a023;
 }
 .services-hero {
     background: linear-gradient(135deg, #f4a023 0%, #ff6b35 100%);
