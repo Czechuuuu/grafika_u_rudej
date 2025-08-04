@@ -51,3 +51,4 @@ function closeModal() {
         }, 300);
     }
 }
+

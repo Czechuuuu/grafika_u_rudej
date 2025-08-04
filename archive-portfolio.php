@@ -2,10 +2,10 @@
 <div class="portfolio-archive-wrapper">
   <h1 class="archive-title animate-on-scroll">Portfolio</h1>
   <div class="portfolio-filters animate-on-scroll" data-delay="200">
-    <button class="btn active">Wszystkie</button>
-    <button class="btn">Grafika</button>
-    <button class="btn">Strony www</button>
-    <button class="btn">Logo</button>
+    <button class="btn filter-btn active">Wszystkie</button>
+    <button class="btn filter-btn">Grafika</button>
+    <button class="btn filter-btn">Strony www</button>
+    <button class="btn filter-btn">Logo</button>
   </div>
   <div class="portfolio-grid">
     <?php $item_delay = 300; while ( have_posts() ) : the_post(); ?>
@@ -18,10 +18,11 @@
         </a>
         <div class="portfolio-item-excerpt"><?php echo get_the_excerpt(); ?></div>
         <div class="portfolio-item-footer">
-          <a href="<?php the_permalink(); ?>" class="btn">Zobacz projekt</a>
+          <a href="<?php the_permalink(); ?>" class="btn primary-btn">Zobacz projekt</a>
         </div>
       </div>
     <?php $item_delay += 100; endwhile; ?>
   </div>
 </div>
 <?php get_footer(); ?>
+

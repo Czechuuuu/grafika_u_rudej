@@ -21,3 +21,4 @@
   <a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="back-to-portfolio btn animate-on-scroll" data-delay="600">← Powrót do portfolio</a>
 </div>
 <?php get_footer(); ?>
+

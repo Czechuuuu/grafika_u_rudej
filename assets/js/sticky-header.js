@@ -1,14 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.site-header');
+    const logo = header.querySelector('.logo');
     let lastScrollTop = 0;
+    let ticking = false;
     
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
         
-        if (scrollTop > 100) {
-            header.classList.add('scrolled');
+        
+        if (scrollDirection === 'down' && scrollTop > 200) {
+            
+            header.style.transform = 'translateY(-100%)';
+            header.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        } else if (scrollDirection === 'up' || scrollTop <= 100) {
+            
+            header.style.transform = 'translateY(0)';
+            header.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+        
+        
+        if (scrollTop > 30) {
+            if (!header.classList.contains('scrolled')) {
+                header.classList.add('scrolled');
+            }
         } else {
-            header.classList.remove('scrolled');
+            if (header.classList.contains('scrolled')) {
+                header.classList.remove('scrolled');
+            }
         }
         
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -34,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    let ticking = false;
     function requestTick() {
         if (!ticking) {
             requestAnimationFrame(handleScroll);

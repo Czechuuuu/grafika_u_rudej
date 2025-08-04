@@ -44,29 +44,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Zamknij menu po kliknięciu w link
+    
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
             closeMobileMenu();
         });
     });
     
-    // Zamknij menu klawiszem Escape
+    
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
             closeMobileMenu();
         }
     });
     
-    // Zamknij menu i wyczyść stany przy zmianie rozmiaru okna
+    
     window.addEventListener('resize', function() {
-        // Zamknij menu na desktop (768px+)
+        
         if (window.innerWidth >= 768 && mobileMenu && mobileMenu.classList.contains('active')) {
             closeMobileMenu();
         }
     });
     
-    // Wyczyść overflow body przy załadowaniu strony
+    
     window.addEventListener('load', function() {
         body.style.overflow = '';
     });

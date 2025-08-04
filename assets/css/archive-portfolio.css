@@ -1,45 +1,15 @@
-.portfolio-hero {
-    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
-    color: #fff;
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.portfolio-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #f4a023, transparent);
-}
-
-.portfolio-hero h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 24px;
-    color: #fff;
-}
-
-.portfolio-hero p {
-    font-size: 1.3rem;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.9;
-}
-
-.portfolio-main {
-    background: #fff;
-    padding: 100px 0;
-}
-
-.portfolio-container {
+.portfolio-archive-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 100px 20px;
+}
+
+.archive-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1e1e1e;
 }
 
 .portfolio-filters {
@@ -47,21 +17,8 @@
     margin-bottom: 60px;
 }
 
-.filter-btn {
-    background: transparent;
-    border: 2px solid #e9ecef;
-    color: #666;
-    padding: 12px 25px;
-    margin: 0 8px 15px 8px;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
+.portfolio-filters .filter-btn:hover,
+.portfolio-filters .filter-btn.active {
     background: #f4a023;
     border-color: #f4a023;
     color: #fff;
@@ -99,126 +56,32 @@
     box-shadow: 0 20px 60px rgba(30, 30, 30, 0.15);
 }
 
-.portfolio-image {
-    position: relative;
-    overflow: hidden;
-    height: 250px;
-}
-
-.portfolio-image img {
+.portfolio-item img {
     width: 100%;
-    height: 100%;
+    height: 250px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.portfolio-item:hover .portfolio-image img {
-    transform: scale(1.1);
-}
-
-.portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(244, 160, 35, 0.9), rgba(255, 107, 53, 0.9));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
-}
-
-.overlay-content {
-    text-align: center;
-    color: #fff;
-}
-
-.view-btn {
-    background: #fff;
-    color: #f4a023;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-.view-btn:hover {
-    background: #1e1e1e;
-    color: #fff;
+.portfolio-item:hover img {
     transform: scale(1.05);
 }
 
-.portfolio-content {
-    padding: 30px;
-}
-
-.portfolio-content h3 {
+.portfolio-item-title {
     font-size: 1.4rem;
     font-weight: 700;
     color: #1e1e1e;
-    margin-bottom: 10px;
+    padding: 20px 25px 10px 25px;
+    margin: 0;
 }
 
-.portfolio-content p {
+.portfolio-item-excerpt {
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    padding: 0 25px;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
 }
 
-.portfolio-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.portfolio-category {
-    background: #f8f9fa;
-    color: #f4a023;
-    padding: 6px 15px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.portfolio-date {
-    color: #999;
-    font-size: 0.9rem;
-}
-
-.load-more-section {
-    text-align: center;
-    padding: 60px 0;
-    background: #f8f9fa;
-}
-
-.load-more-btn {
-    background: #f4a023;
-    color: #fff;
-    border: 2px solid #f4a023;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.load-more-btn:hover {
-    background: transparent;
-    color: #f4a023;
-    transform: translateY(-2px);
+.portfolio-item-footer {
+    padding: 0 25px 25px 25px;
 } 

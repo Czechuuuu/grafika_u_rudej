@@ -1,7 +1,7 @@
     <footer id="colophon" class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section animate-on-scroll">
+                <div class="footer-section">
                     <h3><?php bloginfo('name'); ?></h3>
                     <div class="footer-content-row">
                         <div class="footer-logo">
@@ -10,11 +10,9 @@
                         <p>Profesjonalne usługi graficzne i projektowe. Tworzę unikalne projekty, które wyróżniają się na rynku.</p>
                     </div>
                 </div>
-                <div class="footer-section animate-on-scroll" data-delay="200">
+                <div class="footer-section">
                     <h3>Kontakt</h3>
-                    <div class="social-links">
-                        <p>📧 shestiger@gmail.com</p>
-                    </div>
+                        <p class="footer-email">shestiger@gmail.com</p>
                     <div class="footer-socials">
                         <a href="https://www.facebook.com/Grafiki.u.Rudej" class="footer-social-btn" aria-label="Facebook" target="_blank" rel="noopener">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facebook.webp" alt="Facebook" class="footer-social-icon">
@@ -36,7 +34,7 @@
                     <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Wszystkie prawa zastrzeżone.</p>
                 </div>
                 <div class="footer-links">
-                    <p>Wykonano przez <a href="https://develoart.com" target="_blank" rel="noopener">Develoart</a></p>
+                    <p>Wykonano przez <a href="https://develoart.com" target="_blank" rel="noopener">Develoart</a> Filip Jorka</p>
                 </div>
             </div>
         </div>
@@ -44,3 +42,4 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+

@@ -28,26 +28,26 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
                             <label for="name">Imię i nazwisko *</label>
                             <input type="text" id="name" name="name" placeholder="Twoje imię i nazwisko" value="<?php echo isset($_POST['name']) ? esc_attr($_POST['name']) : ''; ?>" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group animate-on-scroll fade-in-up" data-delay="400">
                             <label for="email">Adres e-mail *</label>
                             <input type="email" id="email" name="email" placeholder="twoj@email.pl" value="<?php echo isset($_POST['email']) ? esc_attr($_POST['email']) : ''; ?>" required>
                         </div>
                     </div>
-                    <div class="form-group form-group-full">
+                    <div class="form-group form-group-full animate-on-scroll fade-in-up" data-delay="500">
                         <label for="subject">Temat</label>
                         <input type="text" id="subject" name="subject" placeholder="Temat wiadomości" value="<?php echo isset($_POST['subject']) ? esc_attr($_POST['subject']) : ''; ?>">
                     </div>
-                    <div class="form-group form-group-full">
+                    <div class="form-group form-group-full animate-on-scroll fade-in-up" data-delay="600">
                         <label for="message">Wiadomość *</label>
                         <textarea id="message" name="message" placeholder="Opisz swój projekt lub zadaj pytanie..." rows="6" required><?php echo isset($_POST['message']) ? esc_textarea($_POST['message']) : ''; ?></textarea>
                     </div>
-                    <button type="submit" name="contact_form_submit" class="btn">Wyślij wiadomość</button>
+                    <button type="submit" name="contact_form_submit" class="btn form-btn animate-on-scroll fade-in-up " data-delay="700">Wyślij wiadomość</button>
                 </form>
             </div>
         </div>
-        <div class="contact-social">
-            <h3>Znajdź mnie również tutaj</h3>
-            <div class="social-links">
+        <div class="contact-social animate-on-scroll fade-in-right" data-delay="200">
+            <h3 class="animate-on-scroll" data-delay="500">Znajdź mnie również tutaj</h3>
+            <div class="social-links animate-on-scroll" data-delay="300">
                 <a href="https://www.facebook.com/Grafiki.u.Rudej" class="social-link" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facebook-contact.webp" alt="Facebook">
                 </a>
@@ -55,7 +55,7 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram-contact.webp" alt="Instagram">
                 </a>
                 <a href="mailto:shestiger@gmail.com" class="social-link" title="Mail" aria-label="Mail" target="_blank" rel="noopener">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail-contact.webp" alt="LinkedIn">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail-contact.webp" alt="Mail">
                 </a>
                 <a href="https://www.behance.net/grafikiurudej" class="social-link" title="Behance" aria-label="Behance" target="_blank" rel="noopener">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/behance-contact.webp" alt="Behance">
@@ -65,7 +65,6 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
     </div>
 </div>
 
-<!-- Modalne okna z komunikatami -->
 <?php if ($message_type === 'success'): ?>
     <div id="contact-modal" class="contact-modal">
         <div class="modal-content modal-success">

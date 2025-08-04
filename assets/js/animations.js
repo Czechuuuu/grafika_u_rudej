@@ -1,11 +1,8 @@
-/**
- * ANIMATIONS.JS - Główny system animacji
- * Zunifikowany system scroll animacji dla motywu
- */
+
 
 class GrafikaAnimations {
     constructor() {
-        this.isDebug = true; // Zmień na false w produkcji
+        this.isDebug = true; 
         this.animatedElements = [];
         this.progressBar = null;
         
@@ -20,7 +17,7 @@ class GrafikaAnimations {
     }
 
     init() {
-        // Czekamy na załadowanie DOM
+        
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.setup());
         } else {
@@ -31,19 +28,19 @@ class GrafikaAnimations {
     setup() {
         this.log('📱 DOM załadowany - rozpoczynanie konfiguracji');
         
-        // Znajdź wszystkie elementy do animacji
+        
         this.findAnimatedElements();
         
-        // Skonfiguruj obserwator przecięć
+        
         this.setupIntersectionObserver();
         
-        // Dodaj pasek postępu
+        
         this.setupScrollProgress();
         
-        // Skonfiguruj płynne przewijanie
+        
         this.setupSmoothScroll();
         
-        // Skonfiguruj nasłuchiwanie zdarzeń
+        
         this.setupEventListeners();
         
         this.log('✅ System animacji gotowy!');
@@ -54,9 +51,9 @@ class GrafikaAnimations {
         
         this.log(`🎯 Znaleziono ${this.animatedElements.length} elementów do animacji`);
         
-        // Ustaw początkowy stan dla wszystkich elementów
+        
         this.animatedElements.forEach((element, index) => {
-            // Dodaj klasę podstawową jeśli jej nie ma
+            
             if (!element.classList.contains('animate-on-scroll')) {
                 element.classList.add('animate-on-scroll');
             }
@@ -79,7 +76,7 @@ class GrafikaAnimations {
             });
         }, options);
 
-        // Rozpocznij obserwację
+        
         this.animatedElements.forEach(element => {
             this.observer.observe(element);
         });
@@ -91,7 +88,7 @@ class GrafikaAnimations {
         const delay = parseInt(element.dataset.delay) || 0;
         
         setTimeout(() => {
-            // Dodaj klasę animacji
+            
             element.classList.add('is-visible', 'animated');
             
             this.log(`✨ Animacja: ${element.tagName}.${element.className}`);
@@ -99,12 +96,12 @@ class GrafikaAnimations {
     }
 
     setupScrollProgress() {
-        // Sprawdź czy istnieje element progress w CSS
+        
         const existingProgress = document.querySelector('.scroll-progress');
         if (existingProgress) {
             this.progressBar = existingProgress;
         } else {
-            // Stwórz nowy element
+            
             this.progressBar = document.createElement('div');
             this.progressBar.className = 'scroll-progress';
             document.body.appendChild(this.progressBar);
@@ -142,7 +139,7 @@ class GrafikaAnimations {
     }
 
     setupEventListeners() {
-        // Throttle dla lepszej wydajności
+        
         let ticking = false;
         
         const handleScroll = () => {
@@ -161,7 +158,7 @@ class GrafikaAnimations {
         this.log('🎧 Event listenery skonfigurowane');
     }
 
-    // Publiczne metody do zarządzania animacjami
+    
     animateElementManually(element) {
         if (element && !element.classList.contains('is-visible')) {
             this.animateElement(element);
@@ -182,10 +179,10 @@ class GrafikaAnimations {
     }
 }
 
-// Inicjalizacja globalnego systemu animacji
+
 window.grafikaAnimations = new GrafikaAnimations();
 
-// Eksport dla innych skryptów
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = GrafikaAnimations;
 }

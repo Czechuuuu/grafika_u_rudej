@@ -1,16 +1,4 @@
-/* ================================================
-   CUSTOM-ANIMATIONS.CSS - Animacje komponentów
-   ================================================ */
-
-/* ========================================
-   1. HERO SECTION ANIMATIONS
-   ======================================== */
-.hero {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
@@ -19,6 +7,8 @@
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(244, 160, 35, 0.1), transparent);
     animation: heroShine 3s ease-in-out 1s;
+    z-index: 3;
+    pointer-events: none;
 }
 
 @keyframes heroShine {
@@ -26,9 +16,7 @@
     100% { left: 100%; }
 }
 
-/* ========================================
-   2. PORTFOLIO ITEM ANIMATIONS
-   ======================================== */
+
 .portfolio-item {
     position: relative;
     overflow: hidden;
@@ -48,41 +36,7 @@
     transform: scale(1.05);
 }
 
-/* ========================================
-   3. BUTTON ANIMATIONS
-   ======================================== */
-.btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.5s ease;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(244, 160, 35, 0.3);
-}
-
-/* ========================================
-   4. SERVICE ICONS ANIMATIONS
-   ======================================== */
 .service .icon {
     display: inline-block;
     font-size: 3rem;
@@ -100,9 +54,7 @@
     50% { transform: translateY(-10px); }
 }
 
-/* ========================================
-   5. IMAGE OVERLAY EFFECTS
-   ======================================== */
+
 .image-overlay {
     position: relative;
     overflow: hidden;
@@ -124,9 +76,7 @@
     left: 150%;
 }
 
-/* ========================================
-   6. PROGRESS BAR ANIMATIONS
-   ======================================== */
+
 .progress-bar {
     width: 100%;
     height: 10px;
@@ -160,9 +110,7 @@
     100% { transform: translateX(100%); }
 }
 
-/* ========================================
-   7. SOCIAL MEDIA ICONS
-   ======================================== */
+
 .social-icon {
     display: inline-block;
     transition: all 0.3s ease;
@@ -178,9 +126,7 @@
     60% { transform: translateY(-5px); }
 }
 
-/* ========================================
-   8. TEXT REVEAL ANIMATION
-   ======================================== */
+
 .text-reveal {
     position: relative;
     overflow: hidden;
@@ -203,9 +149,7 @@
     100% { left: 100%; }
 }
 
-/* ========================================
-   9. LOADING ANIMATION
-   ======================================== */
+
 .loading-screen {
     position: fixed;
     top: 0;
@@ -242,19 +186,3 @@
     }
 }
 
-/* ========================================
-   10. RESPONSIVE ADJUSTMENTS
-   ======================================== */
-@media (max-width: 768px) {
-    .portfolio-item:hover {
-        transform: translateY(-3px) scale(1.01);
-    }
-    
-    .service:hover .icon {
-        transform: scale(1.1);
-    }
-    
-    .btn:hover {
-        transform: translateY(-1px);
-    }
-}

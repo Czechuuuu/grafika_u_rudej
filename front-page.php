@@ -41,7 +41,7 @@
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/o-mnie.jpg" alt="O mnie" class="animate-on-scroll" data-delay="200">
       <div class="animate-on-scroll" data-delay="300">
         <p>👉 Tworzę skuteczne grafiki i prowadzę social media dla firm i marek, które chcą się wyróżniać i przyciągać klientów. Bez sztucznych obietnic – z doświadczeniem, pomysłem i konkretnym efektem.</p>
-        <a href="<?php echo site_url('/o-mnie'); ?>" class="btn">Poznaj mnie lepiej</a>
+        <a href="<?php echo site_url('/o-mnie'); ?>" class="btn primary-btn">Poznaj mnie lepiej</a>
       </div>
     </div>
   </section>

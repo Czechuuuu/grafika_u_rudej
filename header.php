@@ -33,7 +33,6 @@
                 ?>
             </nav>
 
-            <!-- Mobile Menu Toggle -->
             <button class="hamburger" aria-label="Menu mobilne">
                 <span></span>
                 <span></span>
@@ -42,7 +41,6 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu-overlay"></div>
     <nav class="mobile-menu">
         <button class="mobile-menu-close" aria-label="Zamknij menu">&times;</button>
@@ -58,3 +56,4 @@
     </nav>
 
     <div id="content" class="site-content">
+

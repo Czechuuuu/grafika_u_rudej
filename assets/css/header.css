@@ -2,19 +2,27 @@
     background: #1e1e1e;
     backdrop-filter: blur(10px);
     border-bottom: 2px solid #f4a023;
-    padding: 20px 0;
+    padding: 25px 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
 }
 
 .site-header.scrolled {
-    background: #1e1e1e;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
     padding: 15px 0;
+    border-bottom-color: rgba(244, 160, 35, 0.8);
+}
+
+.site-header.scrolled .logo {
+    height: 75px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-container {
@@ -27,10 +35,11 @@
 }
 
 .site-header .logo {
-    height: 70px;
+    height: 100px !important;
     width: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
 }
 
 .site-header .logo:hover {
@@ -51,7 +60,7 @@
 
 .site-title {
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin: 0;
     transition: color 0.3s ease;
@@ -118,51 +127,3 @@
     background: #f4a023;
     color: #1e1e1e;
 }
-
-.site-header nav {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.site-header nav a {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 12px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-}
-
-.site-header nav a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f4a023, #ff6b35);
-    transition: left 0.3s ease;
-    z-index: -1;
-}
-
-.site-header nav a:hover::before {
-    left: 0;
-}
-
-.site-header nav a:hover {
-    color: #1e1e1e;
-    transform: translateY(-2px);
-}
-
-.site-header nav a.current-menu-item {
-    background: #f4a023;
-    color: #1e1e1e;
-}
-
-.mobile-menu-toggle {
-    display: none !important;
-} 
