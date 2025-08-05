@@ -27,11 +27,9 @@ function grafika_u_rudej_enqueue_styles() {
         wp_enqueue_style('grafika-page-kontakt', get_template_directory_uri() . '/assets/css/page-kontakt.css');
         wp_enqueue_script('grafika-contact-modal', get_template_directory_uri() . '/assets/js/contact-modal.js', array(), '1.0.0', true);
     }
-    if (is_post_type_archive('portfolio')) {
-        wp_enqueue_style('grafika-archive-portfolio', get_template_directory_uri() . '/assets/css/archive-portfolio.css');
-    }
-    if (is_singular('portfolio')) {
-        wp_enqueue_style('grafika-single-portfolio', get_template_directory_uri() . '/assets/css/single-portfolio.css');
+    if (is_page('portfolio')) {
+        wp_enqueue_style('grafika-page-portfolio', get_template_directory_uri() . '/assets/css/page-portfolio.css');
+        wp_enqueue_script('grafika-portfolio-filters', get_template_directory_uri() . '/assets/js/portfolio-filters.js', array(), '1.0.0', true);
     }
     wp_enqueue_style('grafika-global', get_template_directory_uri() . '/assets/css/global.css');
 	wp_enqueue_style('grafika-style', get_template_directory_uri() . '/style.css', array('grafika-global', 'grafika-header', 'grafika-footer', 'grafika-custom-animations'));
@@ -41,61 +39,71 @@ function grafika_u_rudej_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'grafika_u_rudej_enqueue_styles');
 
+// Prosty Custom Post Type dla projektów - jak sprzęt
 function gur_register_portfolio_cpt() {
-    $labels = [
-        'name'               => __( 'Portfolio', 'grafika_u_rudej' ),
-        'singular_name'      => __( 'Projekt', 'grafika_u_rudej' ),
-        'add_new'            => __( 'Dodaj nowy', 'grafika_u_rudej' ),
-        'add_new_item'       => __( 'Dodaj nowy projekt', 'grafika_u_rudej' ),
-        'edit_item'          => __( 'Edytuj projekt', 'grafika_u_rudej' ),
-        'new_item'           => __( 'Nowy projekt', 'grafika_u_rudej' ),
-        'view_item'          => __( 'Zobacz projekt', 'grafika_u_rudej' ),
-        'search_items'       => __( 'Szukaj w portfolio', 'grafika_u_rudej' ),
-        'not_found'          => __( 'Nie znaleziono', 'grafika_u_rudej' ),
-        'menu_name'          => __( 'Portfolio', 'grafika_u_rudej' ),
-        'archives'           => __( 'Archiwum Portfolio', 'grafika_u_rudej' ),
-    ];
-    register_post_type( 'portfolio', [
-        'labels'             => $labels,
-        'public'             => true,
-        'show_in_rest'       => true,
-        'has_archive'        => true,
-        'rewrite'            => [ 'slug' => 'portfolio' ],
-        'menu_position'      => 5,
-        'menu_icon'          => 'dashicons-portfolio',
-        'supports'           => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-        'show_in_nav_menus'  => true,
-        'taxonomies'         => [ 'portfolio_category' ],
-    ] );
+    register_post_type('portfolio', [
+        'labels' => [
+            'name' => 'Projekty',
+            'singular_name' => 'Projekt',
+            'add_new_item' => 'Dodaj nowy projekt',
+            'edit_item' => 'Edytuj projekt',
+            'all_items' => 'Wszystkie projekty',
+            'view_item' => 'Zobacz projekt',
+            'search_items' => 'Szukaj projektów',
+            'not_found' => 'Nie znaleziono projektów',
+        ],
+        'public' => true,
+        'has_archive' => false,
+        'publicly_queryable' => false,
+        'menu_icon' => 'dashicons-portfolio',
+        'menu_position' => 5,
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'taxonomies' => ['portfolio_category'],
+    ]);
 }
 add_action( 'init', 'gur_register_portfolio_cpt' );
 
+// Kategorie projektów - prostsza wersja
 function gur_register_portfolio_taxonomy() {
-    $labels = [
-        'name'              => __( 'Kategorie projektów', 'grafika_u_rudej' ),
-        'singular_name'     => __( 'Kategoria projektu', 'grafika_u_rudej' ),
-        'search_items'      => __( 'Szukaj kategorii', 'grafika_u_rudej' ),
-        'all_items'         => __( 'Wszystkie kategorie', 'grafika_u_rudej' ),
-        'parent_item'       => __( 'Kategoria nadrzędna', 'grafika_u_rudej' ),
-        'parent_item_colon' => __( 'Kategoria nadrzędna:', 'grafika_u_rudej' ),
-        'edit_item'         => __( 'Edytuj kategorię', 'grafika_u_rudej' ),
-        'update_item'       => __( 'Aktualizuj kategorię', 'grafika_u_rudej' ),
-        'add_new_item'      => __( 'Dodaj nową kategorię', 'grafika_u_rudej' ),
-        'new_item_name'     => __( 'Nazwa nowej kategorii', 'grafika_u_rudej' ),
-        'menu_name'         => __( 'Kategorie', 'grafika_u_rudej' ),
-    ];
-    register_taxonomy( 'portfolio_category', [ 'portfolio' ], [
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
+    register_taxonomy('portfolio_category', ['portfolio'], [
+        'labels' => [
+            'name' => 'Kategorie projektów',
+            'singular_name' => 'Kategoria projektu',
+            'add_new_item' => 'Dodaj nową kategorię',
+            'edit_item' => 'Edytuj kategorię',
+            'all_items' => 'Wszystkie kategorie',
+        ],
+        'hierarchical' => true,
+        'show_ui' => true,
         'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => [ 'slug' => 'kategoria-projektu' ],
-        'show_in_rest'      => true,
-    ] );
+        'show_in_rest' => true,
+        'rewrite' => ['slug' => 'kategoria-projektu'],
+    ]);
 }
 add_action( 'init', 'gur_register_portfolio_taxonomy' );
 
+// Dodaj kolumnę kategorii w liście projektów
+add_filter('manage_portfolio_posts_columns', function($columns) {
+    $columns['portfolio_category'] = 'Kategoria';
+    return $columns;
+});
+
+add_action('manage_portfolio_posts_custom_column', function($column, $post_id) {
+    if ($column === 'portfolio_category') {
+        $categories = get_the_terms($post_id, 'portfolio_category');
+        if ($categories && !is_wp_error($categories)) {
+            $category_names = array();
+            foreach ($categories as $category) {
+                $category_names[] = $category->name;
+            }
+            echo esc_html(implode(', ', $category_names));
+        } else {
+            echo '-';
+        }
+    }
+}, 10, 2);
+
+// Obsługa formularza kontaktowego
 function gur_handle_contact_form() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submit'])) {
         if (!wp_verify_nonce($_POST['contact_nonce'], 'contact_form_nonce')) {
