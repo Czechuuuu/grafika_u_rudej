@@ -16,6 +16,7 @@ function grafika_u_rudej_enqueue_styles() {
     wp_enqueue_style('grafika-custom-animations', get_template_directory_uri() . '/assets/css/custom-animations.css');
     if (is_front_page()) {
         wp_enqueue_style('grafika-front-page', get_template_directory_uri() . '/assets/css/front-page.css', array('grafika-custom-animations'), '1.0.0');
+        wp_enqueue_script('grafika-featured-projects', get_template_directory_uri() . '/assets/js/featured-projects.js', array(), '1.0.0', true);
     }
     if (is_page('o-mnie')) {
         wp_enqueue_style('grafika-page-o-mnie', get_template_directory_uri() . '/assets/css/page-o-mnie.css');
@@ -29,7 +30,9 @@ function grafika_u_rudej_enqueue_styles() {
     }
     if (is_page('portfolio')) {
         wp_enqueue_style('grafika-page-portfolio', get_template_directory_uri() . '/assets/css/page-portfolio.css');
+        wp_enqueue_style('grafika-portfolio-modal', get_template_directory_uri() . '/assets/css/portfolio-modal.css');
         wp_enqueue_script('grafika-portfolio-filters', get_template_directory_uri() . '/assets/js/portfolio-filters.js', array(), '1.0.0', true);
+        wp_enqueue_script('grafika-portfolio-modal', get_template_directory_uri() . '/assets/js/portfolio-modal.js', array(), '1.0.0', true);
     }
     wp_enqueue_style('grafika-global', get_template_directory_uri() . '/assets/css/global.css');
 	wp_enqueue_style('grafika-style', get_template_directory_uri() . '/style.css', array('grafika-global', 'grafika-header', 'grafika-footer', 'grafika-custom-animations'));
@@ -39,7 +42,6 @@ function grafika_u_rudej_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'grafika_u_rudej_enqueue_styles');
 
-// Prosty Custom Post Type dla projektów - jak sprzęt
 function gur_register_portfolio_cpt() {
     register_post_type('portfolio', [
         'labels' => [
@@ -63,7 +65,6 @@ function gur_register_portfolio_cpt() {
 }
 add_action( 'init', 'gur_register_portfolio_cpt' );
 
-// Kategorie projektów - prostsza wersja
 function gur_register_portfolio_taxonomy() {
     register_taxonomy('portfolio_category', ['portfolio'], [
         'labels' => [
@@ -82,7 +83,6 @@ function gur_register_portfolio_taxonomy() {
 }
 add_action( 'init', 'gur_register_portfolio_taxonomy' );
 
-// Dodaj kolumnę kategorii w liście projektów
 add_filter('manage_portfolio_posts_columns', function($columns) {
     $columns['portfolio_category'] = 'Kategoria';
     return $columns;
@@ -103,7 +103,6 @@ add_action('manage_portfolio_posts_custom_column', function($column, $post_id) {
     }
 }, 10, 2);
 
-// Obsługa formularza kontaktowego
 function gur_handle_contact_form() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submit'])) {
         if (!wp_verify_nonce($_POST['contact_nonce'], 'contact_form_nonce')) {

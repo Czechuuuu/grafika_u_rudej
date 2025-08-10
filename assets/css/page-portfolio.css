@@ -1,8 +1,8 @@
-/* Portfolio Page Styles */
 .portfolio-page-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
+    margin-top: 30px; /* Dodatkowe miejsce od góry dla portfolio */
 }
 
 .page-header {
@@ -111,7 +111,8 @@
     margin-bottom: 1rem;
 }
 
-.portfolio-item > div:last-child {
+.portfolio-item > div:last-child,
+.portfolio-meta {
     padding: 1.5rem;
     background: #f8f9fa;
     margin-top: auto;
@@ -154,25 +155,4 @@
     font-size: 1.2rem;
     color: #666;
     padding: 3rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .page-title {
-        font-size: 2rem;
-    }
-    
-    .portfolio-filters {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .filter-btn {
-        width: 200px;
-    }
 }
