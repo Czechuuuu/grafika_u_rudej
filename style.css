@@ -1,4 +1,3 @@
-
 /*
 Theme Name: grafika_u_rudej
 Theme URI: https://grafikiurudej.com
@@ -12,7 +11,6 @@ Text Domain: grafika_u_rudej
 */
 
 #wpadminbar {display: none !important;}
-
 
 .hamburger {
     display: none;
@@ -118,9 +116,7 @@ Text Domain: grafika_u_rudej
     color: #1e1e1e;
 }
 
-  /* MEDIA QUERIES */
-
-  /* --- 1300px --- */
+ 
   @media (max-width: 1300px) {
     .header-container,
     .hero-container,
@@ -146,7 +142,7 @@ Text Domain: grafika_u_rudej
     }
   }
 
-  /* --- 991px --- */  
+  
   @media (max-width: 991px) {
     .site-header .nav-menu {
       display: none;
@@ -199,7 +195,6 @@ Text Domain: grafika_u_rudej
       padding: 25px 20px;
     }
     
-    /* Contact responsive */
     .contact-hero {
       padding: 80px 0;
     }
@@ -235,7 +230,6 @@ Text Domain: grafika_u_rudej
       height: 45px;
     }
     
-    /* About Me responsive */
     .about-hero {
       padding: 80px 0;
     }
@@ -318,7 +312,6 @@ Text Domain: grafika_u_rudej
       padding: 80px 0;
     }
     
-    /* Footer responsive */
     .footer-content {
       flex-direction: column;
       gap: 2rem;
@@ -359,7 +352,6 @@ Text Domain: grafika_u_rudej
       margin-right: auto;
     }
     
-    /* Pricing responsive */
     .pricing-container {
       gap: 20px;
     }
@@ -388,7 +380,6 @@ Text Domain: grafika_u_rudej
       font-size: 1rem;
     }
     
-    /* Social Media responsive */
     .social-media-grid {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
@@ -439,7 +430,7 @@ Text Domain: grafika_u_rudej
     }
   }
   
-  /* --- 770px --- */
+ 
   @media (max-width: 770px) {
     body {
       padding-top: 100px;
@@ -504,7 +495,6 @@ Text Domain: grafika_u_rudej
       max-width: 350px;
     }
     
-    /* Contact responsive */
     .contact-hero {
       padding: 70px 0;
     }
@@ -564,7 +554,6 @@ Text Domain: grafika_u_rudej
       font-size: 1rem;
     }
     
-    /* About Me responsive */
     .about-hero {
       padding: 70px 0;
     }
@@ -654,8 +643,7 @@ Text Domain: grafika_u_rudej
     .cta-content h3 {
       font-size: 1.6rem;
     }
-    
-    /* Footer responsive */
+  
     .site-footer {
       padding: 2.5rem 0 1rem;
       margin-top: 3rem;
@@ -698,7 +686,6 @@ Text Domain: grafika_u_rudej
       transform: translateX(-50%);
     }
     
-    /* Pricing responsive */
     .pricing-section {
       padding: 30px 20px;
       margin-top: 30px;
@@ -748,7 +735,6 @@ Text Domain: grafika_u_rudej
       padding: 15px;
     }
     
-    /* Social Media responsive */
     .social-media-section {
       padding: 60px 0;
     }
@@ -827,7 +813,7 @@ Text Domain: grafika_u_rudej
     }
   }
 
-  /* --- 576px --- */
+ 
   @media (max-width: 576px) {
     .header-container,
     .hero-container,
@@ -886,7 +872,6 @@ Text Domain: grafika_u_rudej
       font-size: 1rem;
     }
     
-    /* Contact responsive */
     .contact-hero {
       padding: 60px 0;
       margin-top: 50px;
@@ -972,7 +957,6 @@ Text Domain: grafika_u_rudej
       margin-bottom: 25px;
     }
     
-    /* About Me responsive */
     .about-hero {
       padding: 60px 0;
       margin-top: 50px;
@@ -1092,7 +1076,6 @@ Text Domain: grafika_u_rudej
       font-size: 1.1rem;
     }
     
-    /* Footer responsive */
     .site-footer {
       padding: 2rem 0 1rem;
       margin-top: 2.5rem;
@@ -1156,7 +1139,6 @@ Text Domain: grafika_u_rudej
       transform: translateX(-50%);
     }
     
-    /* Pricing responsive */
     .pricing-section {
       padding: 25px 15px;
       margin-top: 25px;
@@ -1206,7 +1188,6 @@ Text Domain: grafika_u_rudej
       padding: 10px;
     }
     
-    /* Social Media responsive */
     .social-media-section {
       padding: 40px 0;
     }
@@ -1256,7 +1237,7 @@ Text Domain: grafika_u_rudej
     }
   }
 
-  /* --- 480px --- */
+ 
   @media (max-width: 480px) {
     .header-container,
     .hero-container,
@@ -1354,7 +1335,6 @@ Text Domain: grafika_u_rudej
       font-size: 0.95rem;
     }
     
-    /* Contact responsive */
     .contact-hero {
       padding: 50px 0;
       margin-top: 40px;
@@ -1456,7 +1436,6 @@ Text Domain: grafika_u_rudej
       right: 15px;
     }
     
-    /* About Me responsive */
     .about-hero {
       padding: 50px 0;
       margin-top: 40px;
@@ -1597,7 +1576,6 @@ Text Domain: grafika_u_rudej
       height: 2px;
     }
     
-    /* Footer responsive */
     .site-footer {
       padding: 1.5rem 0 0.8rem;
       margin-top: 2rem;
@@ -1665,7 +1643,6 @@ Text Domain: grafika_u_rudej
       transform: translateX(-50%);
     }
     
-    /* Pricing responsive */
     .pricing-section {
       padding: 20px 10px;
       margin-top: 20px;

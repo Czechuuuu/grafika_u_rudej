@@ -8,5 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function openFeaturedProjectModal(projectId) {
-    window.location.href = `/portfolio?project=${projectId}`;
+    const portfolioUrl = (typeof grafikaReels !== 'undefined' && grafikaReels.portfolioUrl) 
+        ? grafikaReels.portfolioUrl 
+        : window.location.origin + '/portfolio';
+    window.location.href = portfolioUrl + '?project=' + projectId;
 }

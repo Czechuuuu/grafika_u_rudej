@@ -30,8 +30,8 @@ get_header(); ?>
       </div>
       <div class="service-card animate-on-scroll" data-delay="500">
         <div class="service-content">
-          <h3>Oznakowanie i tablice</h3>
-          <p>Przygotuję materiały, które są czytelne, estetyczne i zgodne z przepisami (np. w branży medycznej).</p>
+          <h3>Broszury i materiały edukacyjne</h3>
+          <p>Broszury, e‑booki, materiały szkoleniowe i prezentacje. Przejrzysty układ, spójna szata i czytelna typografia – Twoje treści w profesjonalnej formie.</p>
           <a href="<?php echo home_url('/kontakt'); ?>" class="btn primary-btn">Zamów projekt</a>
         </div>
       </div>

@@ -15,7 +15,7 @@ get_header(); ?>
   <div class="about-container">
     <div class="about-content animate-on-scroll" data-delay="200">
       <div class="about-image animate-on-scroll" data-delay="300">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/o-mnie.jpg" alt="Dominika - Grafika u Rudej">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/o-mnie.webp" alt="Dominika - Grafika u Rudej">
       </div>
       <div class="about-text animate-on-scroll" data-delay="400">
         <h2>To ja, Dominika!</h2>

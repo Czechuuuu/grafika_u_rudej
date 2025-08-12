@@ -61,11 +61,92 @@
     transform: scale(1.1);
 }
 
-.portfolio-modal-image {
+.portfolio-modal-image,
+.portfolio-modal-video {
     width: 100%;
     max-height: 70vh;
     object-fit: contain;
     display: block;
+}
+
+.portfolio-modal-video {
+    pointer-events: auto !important; /* Przywróć kontrolki w modal */
+    cursor: auto !important;
+}
+
+.portfolio-modal-video::-webkit-media-controls-panel,
+.portfolio-modal-video::-webkit-media-controls {
+    display: flex !important;
+}
+
+.portfolio-modal-video[controls] {
+    -webkit-appearance: media-controls-panel;
+    appearance: auto;
+}
+
+.portfolio-modal-media {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+    pointer-events: none; /* Blokuje bezpośrednie kliknięcie na video */
+}
+
+.portfolio-item .video-container video {
+    pointer-events: none; /* Upewnij się że video w grid nie ma kontrolek */
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px 15px 0 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 2; /* Zapewnia że overlay jest nad video */
+}
+
+.play-overlay:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(244, 160, 35, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(244, 160, 35, 0.3);
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background: rgba(244, 160, 35, 1);
+}
+
+.portfolio-item .video-container:hover .play-button {
+    transform: scale(1.2);
 }
 
 .portfolio-modal-info {

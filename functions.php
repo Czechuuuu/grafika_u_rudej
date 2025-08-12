@@ -17,6 +17,22 @@ function grafika_u_rudej_enqueue_styles() {
     if (is_front_page()) {
         wp_enqueue_style('grafika-front-page', get_template_directory_uri() . '/assets/css/front-page.css', array('grafika-custom-animations'), '1.0.0');
         wp_enqueue_script('grafika-featured-projects', get_template_directory_uri() . '/assets/js/featured-projects.js', array(), '1.0.0', true);
+        wp_enqueue_style('grafika-reels', get_template_directory_uri() . '/assets/css/reels.css', array('grafika-front-page'), '1.0.0');
+        wp_enqueue_script('grafika-reels', get_template_directory_uri() . '/assets/js/reels.js', array(), '1.0.0', true);
+        
+        // Przekaż URL-e do JavaScript
+        wp_localize_script('grafika-featured-projects', 'grafikaReels', array(
+            'portfolioUrl' => site_url('/portfolio'),
+            'homeUrl' => home_url()
+        ));
+        wp_localize_script('grafika-reels', 'grafikaReels', array(
+            'portfolioUrl' => site_url('/portfolio'),
+            'homeUrl' => home_url()
+        ));
+        
+        // Dodaj portfolio modal na front page dla reels
+        wp_enqueue_style('grafika-portfolio-modal', get_template_directory_uri() . '/assets/css/portfolio-modal.css');
+        wp_enqueue_script('grafika-portfolio-modal', get_template_directory_uri() . '/assets/js/portfolio-modal.js', array(), '1.0.0', true);
     }
     if (is_page('o-mnie')) {
         wp_enqueue_style('grafika-page-o-mnie', get_template_directory_uri() . '/assets/css/page-o-mnie.css');
@@ -162,3 +178,68 @@ function gur_handle_contact_form() {
     }
 }
 add_action('init', 'gur_handle_contact_form');
+
+// Dodaj meta box dla video do portfolio
+function add_portfolio_video_meta_box() {
+    add_meta_box(
+        'portfolio-video',
+        'Video Portfolio',
+        'portfolio_video_callback',
+        'portfolio',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'add_portfolio_video_meta_box');
+
+function portfolio_video_callback($post) {
+    wp_nonce_field(basename(__FILE__), 'portfolio_video_nonce');
+    $video_url = get_post_meta($post->ID, '_portfolio_video_url', true);
+    $media_type = get_post_meta($post->ID, '_portfolio_media_type', true);
+    if (!$media_type) $media_type = 'image';
+    ?>
+    <table class="form-table">
+        <tr>
+            <th><label for="portfolio_media_type">Typ mediów:</label></th>
+            <td>
+                <select name="portfolio_media_type" id="portfolio_media_type">
+                    <option value="image" <?php selected($media_type, 'image'); ?>>Obraz</option>
+                    <option value="video" <?php selected($media_type, 'video'); ?>>Video</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="portfolio_video_url">URL Video (MP4):</label></th>
+            <td>
+                <input type="url" name="portfolio_video_url" id="portfolio_video_url" value="<?php echo esc_attr($video_url); ?>" size="80" />
+                <p class="description">Wklej URL do pliku MP4 lub wybierz z biblioteki mediów</p>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+function save_portfolio_video_meta($post_id) {
+    if (!isset($_POST['portfolio_video_nonce']) || !wp_verify_nonce($_POST['portfolio_video_nonce'], basename(__FILE__))) {
+        return $post_id;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return $post_id;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return $post_id;
+    }
+
+    if (isset($_POST['portfolio_video_url'])) {
+        update_post_meta($post_id, '_portfolio_video_url', esc_url_raw($_POST['portfolio_video_url']));
+    }
+
+    if (isset($_POST['portfolio_media_type'])) {
+        update_post_meta($post_id, '_portfolio_media_type', sanitize_text_field($_POST['portfolio_media_type']));
+    }
+
+    return $post_id;
+}
+add_action('save_post', 'save_portfolio_video_meta');

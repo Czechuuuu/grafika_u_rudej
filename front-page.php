@@ -18,7 +18,8 @@
       <?php
       $featured = new WP_Query([
         'post_type' => 'portfolio',
-        'posts_per_page' => 3
+        'posts_per_page' => 3,
+        'orderby' => 'rand'
       ]);
       if ($featured->have_posts()) :
         $delay = 200;
@@ -37,23 +38,54 @@
   </section>
   <section class="video-reels animate-on-scroll">
     <h2 class="animate-on-scroll" data-delay="100">Rolki i video</h2>
-    <p class="section-subtitle animate-on-scroll" data-delay="200">Dynamiczna prezentacja moich najlepszych prac</p>
+    <p class="section-subtitle animate-on-scroll" data-delay="200">Krótko, wyraziście, zapamiętywalnie</p>
     <div class="reels-grid">
-      <div class="reel-item animate-on-scroll" data-delay="300">
-        <video autoplay muted loop playsinline>
-          <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/reel1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="reel-item animate-on-scroll" data-delay="400">
-        <video autoplay muted loop playsinline>
-          <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/reel2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="reel-item animate-on-scroll" data-delay="500">
-        <video autoplay muted loop playsinline>
-          <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/reel3.mp4" type="video/mp4">
-        </video>
-      </div>
+      <?php
+      $video_projects = new WP_Query([
+        'post_type' => 'portfolio',
+        'posts_per_page' => 3,
+        'orderby' => 'rand',
+        'meta_query' => [
+          [
+            'key' => '_portfolio_media_type',
+            'value' => 'video',
+            'compare' => '='
+          ],
+          [
+            'key' => '_portfolio_video_url',
+            'value' => '',
+            'compare' => '!='
+          ]
+        ]
+      ]);
+      
+      if ($video_projects->have_posts()) :
+        $delay = 300;
+        while ($video_projects->have_posts()) : $video_projects->the_post();
+          $video_url = get_post_meta(get_the_ID(), '_portfolio_video_url', true);
+          $poster = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : '';
+          ?>
+          <div class="reel-item animate-on-scroll" data-delay="<?php echo $delay; ?>">
+            <video class="reel-video" loop muted playsinline preload="metadata" 
+                   poster="<?php echo esc_url($poster); ?>"
+                   data-project-id="<?php echo get_the_ID(); ?>"
+                   data-project-title="<?php echo esc_attr(get_the_title()); ?>">
+              <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+              Twoja przeglądarka nie obsługuje video.
+            </video>
+            <div class="reel-overlay">
+              <div class="reel-play-btn">▶</div>
+              <div class="reel-title"><?php the_title(); ?></div>
+            </div>
+          </div>
+          <?php $delay += 100; endwhile;
+        wp_reset_postdata();
+      else : ?>
+        <div class="no-video-message animate-on-scroll" data-delay="300">
+          <div class="no-video-icon">🎬</div>
+          <h3>Brak video do wyświetlenia</h3>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
   <section class="about-me animate-on-scroll">
@@ -71,8 +103,8 @@
     <div class="services-list">
       <div class="service animate-on-scroll" data-delay="200">
         <span class="icon">🎨</span>
-        <h3>Logo i identyfikacja wizualna</h3>
-        <p>Zaprojektuję logo, które odda charakter Twojej marki. Prosto, estetycznie i bez banału.</p>
+        <h3>Projektowanie graficzne</h3>
+        <p>Logo, wizytówki, ulotki, plakaty, katalogi, bannery, grafiki do social mediów – komplet spójnych materiałów, które budują rozpoznawalność i wspierają sprzedaż. Od koncepcji po gotowe pliki do druku i online.</p>
       </div>
       <div class="service animate-on-scroll" data-delay="300">
         <span class="icon">📱</span>
@@ -80,7 +112,7 @@
         <p>Nie tylko ładne obrazki – projektuję grafiki, które zatrzymują uwagę i pasują do algorytmu.</p>
       </div>
       <div class="service animate-on-scroll" data-delay="400">
-        <span class="icon">�</span>
+      <span class="icon">📢</span>
         <h3>Prowadzenie social media</h3>
         <p>Facebook, Instagram, LinkedIn – od A do Z. Regularność, strategia i kreatywność w jednym.</p>
       </div>
