@@ -7,19 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
-        
-        
         if (scrollDirection === 'down' && scrollTop > 200) {
-            
             header.style.transform = 'translateY(-100%)';
             header.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
         } else if (scrollDirection === 'up' || scrollTop <= 100) {
-            
             header.style.transform = 'translateY(0)';
             header.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
         }
-        
-        
         if (scrollTop > 30) {
             if (!header.classList.contains('scrolled')) {
                 header.classList.add('scrolled');
@@ -29,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.classList.remove('scrolled');
             }
         }
-        
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
     
@@ -43,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     e.preventDefault();
                     const headerHeight = header.offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight - 20;
-                    
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'

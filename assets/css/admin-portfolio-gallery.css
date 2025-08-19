@@ -1,0 +1,60 @@
+#portfolio-gallery-container {
+    padding: 10px 0;
+}
+
+#gallery-images-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 15px 0;
+    min-height: 50px;
+    border: 2px dashed #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.gallery-image-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background: #f9f9f9;
+    text-align: center;
+    position: relative;
+}
+
+.gallery-image-preview img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 3px;
+}
+
+.gallery-image-controls {
+    margin-top: 10px;
+}
+
+.gallery-image-controls .button {
+    margin: 2px;
+    font-size: 11px;
+    padding: 2px 8px;
+}
+
+.gallery-actions {
+    margin: 15px 0;
+    padding: 10px;
+    background: #f0f0f1;
+    border-radius: 5px;
+}
+
+.gallery-count {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+#gallery-images-list:empty::before {
+    content: "Brak obrazów w galerii. Kliknij 'Dodaj obraz' aby dodać pierwszy obraz.";
+    color: #666;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}

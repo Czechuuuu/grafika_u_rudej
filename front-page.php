@@ -16,11 +16,7 @@
     <h2 class="animate-on-scroll" data-delay="100">Wybrane projekty</h2>
     <div class="projects-grid">
       <?php
-      $featured = new WP_Query([
-        'post_type' => 'portfolio',
-        'posts_per_page' => 3,
-        'orderby' => 'rand'
-      ]);
+      $featured = new WP_Query(['post_type' => 'portfolio', 'posts_per_page' => 3, 'orderby' => 'rand']);
       if ($featured->have_posts()) :
         $delay = 200;
         while ($featured->have_posts()) : $featured->the_post(); ?>
@@ -41,24 +37,7 @@
     <p class="section-subtitle animate-on-scroll" data-delay="200">Krótko, wyraziście, zapamiętywalnie</p>
     <div class="reels-grid">
       <?php
-      $video_projects = new WP_Query([
-        'post_type' => 'portfolio',
-        'posts_per_page' => 3,
-        'orderby' => 'rand',
-        'meta_query' => [
-          [
-            'key' => '_portfolio_media_type',
-            'value' => 'video',
-            'compare' => '='
-          ],
-          [
-            'key' => '_portfolio_video_url',
-            'value' => '',
-            'compare' => '!='
-          ]
-        ]
-      ]);
-      
+      $video_projects = new WP_Query(['post_type' => 'portfolio', 'posts_per_page' => 3, 'orderby' => 'rand', 'meta_query' => [['key' => '_portfolio_media_type', 'value' => 'video', 'compare' => '='], ['key' => '_portfolio_video_url', 'value' => '', 'compare' => '!=']]]);
       if ($video_projects->have_posts()) :
         $delay = 300;
         while ($video_projects->have_posts()) : $video_projects->the_post();
@@ -66,10 +45,7 @@
           $poster = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : '';
           ?>
           <div class="reel-item animate-on-scroll" data-delay="<?php echo $delay; ?>">
-            <video class="reel-video" loop muted playsinline preload="metadata" 
-                   poster="<?php echo esc_url($poster); ?>"
-                   data-project-id="<?php echo get_the_ID(); ?>"
-                   data-project-title="<?php echo esc_attr(get_the_title()); ?>">
+            <video class="reel-video" loop muted playsinline preload="metadata" poster="<?php echo esc_url($poster); ?>" data-project-id="<?php echo get_the_ID(); ?>" data-project-title="<?php echo esc_attr(get_the_title()); ?>">
               <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
               Twoja przeglądarka nie obsługuje video.
             </video>

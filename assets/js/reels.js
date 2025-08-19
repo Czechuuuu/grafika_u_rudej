@@ -27,12 +27,10 @@
 
   function initVideo(video){
     const container = video.closest('.reel-item') || video.parentElement;
-    
-    // Check if this is a portfolio video (has data-project-id)
     const projectId = video.dataset.projectId;
     if (projectId) {
       initPortfolioVideoInteraction(container, video, projectId);
-      return; // Skip custom controls for portfolio videos
+      return;
     }
     
     const ui = buildControls(container, video);
@@ -73,18 +71,13 @@
     video.addEventListener('timeupdate', updateTime);
     video.addEventListener('play', updatePlayBtn); video.addEventListener('pause', updatePlayBtn);
     video.addEventListener('loadedmetadata', ()=>{ updateTime(); if(video.muted) volumeInput.value = 0; else volumeInput.value = video.volume; });
-
-    // Keyboard accessibility
     container.tabIndex = 0;
     container.addEventListener('keydown', e=>{ switch(e.key){ case ' ': case 'k': e.preventDefault(); togglePlay(); break; case 'm': toggleMute(); break; case 'ArrowRight': video.currentTime = Math.min(video.duration, video.currentTime+5); break; case 'ArrowLeft': video.currentTime = Math.max(0, video.currentTime-5); break; case 'ArrowUp': video.volume = Math.min(1, video.volume+0.05); volumeInput.value = video.volume.toFixed(2); if(video.volume>0) video.muted=false; updateMuteBtn(); break; case 'ArrowDown': video.volume = Math.max(0, video.volume-0.05); volumeInput.value = video.volume.toFixed(2); if(video.volume===0) video.muted=true; updateMuteBtn(); break; } });
-
-    // Start muted by default (for autoplay policies)
     video.muted = true; video.volume = 0; updateMuteBtn();
     showControls();
   }
 
   function initPortfolioVideoInteraction(container, video, projectId) {
-    // Hover effects for video preview
     container.addEventListener('mouseenter', function() {
       if (video.paused) {
         video.play().catch(e => {
@@ -92,31 +85,23 @@
         });
       }
     });
-    
     container.addEventListener('mouseleave', function() {
       if (!video.paused) {
         video.pause();
         video.currentTime = 0;
       }
     });
-    
-    // Click to open portfolio modal
     const clickHandler = function(e) {
       e.preventDefault();
       e.stopPropagation();
-      
-      // Pause current video
       if (!video.paused) {
         video.pause();
       }
-      
-      // Find the corresponding portfolio item and open modal
       setTimeout(() => {
         const portfolioItem = document.querySelector(`.portfolio-item[data-post-id="${projectId}"]`);
         if (portfolioItem && typeof openPortfolioModal === 'function') {
           openPortfolioModal(portfolioItem);
         } else {
-          // Fallback: redirect to portfolio page with project
           const portfolioUrl = (typeof grafikaReels !== 'undefined' && grafikaReels.portfolioUrl) 
             ? grafikaReels.portfolioUrl 
             : window.location.origin + '/portfolio';
@@ -126,13 +111,10 @@
     };
     
     container.addEventListener('click', clickHandler);
-    
     const overlay = container.querySelector('.reel-overlay');
     if (overlay) {
       overlay.addEventListener('click', clickHandler);
     }
-    
-    // Make cursor pointer
     container.style.cursor = 'pointer';
     if (overlay) {
       overlay.style.cursor = 'pointer';

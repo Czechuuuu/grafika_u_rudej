@@ -1,6 +1,22 @@
 <?php 
 $media_type = get_post_meta(get_the_ID(), '_portfolio_media_type', true);
 $video_url = get_post_meta(get_the_ID(), '_portfolio_video_url', true);
+$gallery_images = get_post_meta(get_the_ID(), '_portfolio_gallery_images', true);
+$has_gallery = !empty($gallery_images) && is_array($gallery_images) && count($gallery_images) > 0;
+
+$gallery_urls = array();
+if ($has_gallery) {
+    foreach ($gallery_images as $image_id) {
+        $image_url = wp_get_attachment_image_url($image_id, 'full');
+        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+        if ($image_url) {
+            $gallery_urls[] = array(
+                'url' => $image_url,
+                'alt' => $image_alt ?: get_the_title($image_id)
+            );
+        }
+    }
+}
 ?>
 
 <div class="portfolio-item" 
@@ -8,6 +24,8 @@ $video_url = get_post_meta(get_the_ID(), '_portfolio_video_url', true);
      data-title="<?php echo esc_attr(get_the_title()); ?>"
      data-media-type="<?php echo esc_attr($media_type ? $media_type : 'image'); ?>"
      data-video-url="<?php echo esc_attr($video_url); ?>"
+     data-has-gallery="<?php echo $has_gallery ? 'true' : 'false'; ?>"
+     data-gallery-urls="<?php echo $has_gallery ? esc_attr(json_encode($gallery_urls)) : ''; ?>"
      role="button" 
      tabindex="0" 
      aria-label="Otwórz szczegóły projektu: <?php echo esc_attr(get_the_title()); ?>">
@@ -27,6 +45,12 @@ $video_url = get_post_meta(get_the_ID(), '_portfolio_video_url', true);
             <?php 
             the_post_thumbnail('large'); 
             ?>
+            <?php if ($has_gallery) : ?>
+                <div class="gallery-indicator">
+                    <span class="gallery-icon">🖼️</span>
+                    <span class="gallery-count"><?php echo count($gallery_images) + 1; ?> zdjęć</span>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 

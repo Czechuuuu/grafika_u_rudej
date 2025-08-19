@@ -70,7 +70,7 @@
 }
 
 .portfolio-modal-video {
-    pointer-events: auto !important; /* Przywróć kontrolki w modal */
+    pointer-events: auto !important;
     cursor: auto !important;
 }
 
@@ -87,6 +87,77 @@
 .portfolio-modal-media {
     position: relative;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.gallery-navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.gallery-nav-btn:hover {
+    background: rgba(244, 160, 35, 0.9);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 20px rgba(244, 160, 35, 0.4);
+}
+
+.gallery-prev {
+    left: 20px;
+}
+
+.gallery-next {
+    right: 20px;
+}
+
+.gallery-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gallery-current {
+    color: #f4a023;
 }
 
 .video-container {
@@ -99,11 +170,11 @@
     width: 100%;
     height: auto;
     border-radius: 15px 15px 0 0;
-    pointer-events: none; /* Blokuje bezpośrednie kliknięcie na video */
+    pointer-events: none;
 }
 
 .portfolio-item .video-container video {
-    pointer-events: none; /* Upewnij się że video w grid nie ma kontrolek */
+    pointer-events: none;
 }
 
 .play-overlay {
@@ -119,7 +190,7 @@
     border-radius: 15px 15px 0 0;
     transition: all 0.3s ease;
     cursor: pointer;
-    z-index: 2; /* Zapewnia że overlay jest nad video */
+    z-index: 2;
 }
 
 .play-overlay:hover {
@@ -194,3 +265,4 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+

@@ -44,13 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
             closeMobileMenu();
         });
     });
-    
     
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
@@ -58,14 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    
     window.addEventListener('resize', function() {
-        
         if (window.innerWidth >= 768 && mobileMenu && mobileMenu.classList.contains('active')) {
             closeMobileMenu();
         }
     });
-    
     
     window.addEventListener('load', function() {
         body.style.overflow = '';

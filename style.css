@@ -208,6 +208,19 @@ Text Domain: grafika_u_rudej
       padding: 0 30px;
     }
     
+    .services-hero {
+      padding: 80px 0;
+    }
+    
+    .services-hero h1 {
+      font-size: 3.5rem;
+    }
+    
+    .services-hero p {
+      font-size: 1.3rem;
+      padding: 0 30px;
+    }
+    
     .contact-form {
       padding: 50px 40px;
     }
@@ -239,6 +252,19 @@ Text Domain: grafika_u_rudej
     }
     
     .about-hero p {
+      font-size: 1.3rem;
+      padding: 0 30px;
+    }
+    
+    .services-hero {
+      padding: 80px 0;
+    }
+    
+    .services-hero h1 {
+      font-size: 3.5rem;
+    }
+    
+    .services-hero p {
       font-size: 1.3rem;
       padding: 0 30px;
     }
@@ -508,6 +534,19 @@ Text Domain: grafika_u_rudej
       padding: 0 20px;
     }
     
+    .services-hero {
+      padding: 70px 0;
+    }
+    
+    .services-hero h1 {
+      font-size: 3rem;
+    }
+    
+    .services-hero p {
+      font-size: 1.2rem;
+      padding: 0 20px;
+    }
+    
     .contact-form-section {
       padding: 0 15px;
     }
@@ -519,6 +558,24 @@ Text Domain: grafika_u_rudej
     .form-row {
       grid-template-columns: 1fr;
       gap: 15px;
+    }
+    
+    .file-upload-display {
+      padding: 15px 20px;
+      min-height: 55px;
+    }
+    
+    .file-upload-icon {
+      font-size: 1.3rem;
+    }
+    
+    .file-upload-text {
+      font-size: 1rem;
+    }
+    
+    .file-upload-button {
+      padding: 6px 12px;
+      font-size: 0.85rem;
     }
     
     .contact-social {
@@ -563,6 +620,19 @@ Text Domain: grafika_u_rudej
     }
     
     .about-hero p {
+      font-size: 1.2rem;
+      padding: 0 20px;
+    }
+    
+    .services-hero {
+      padding: 70px 0;
+    }
+    
+    .services-hero h1 {
+      font-size: 3rem;
+    }
+    
+    .services-hero p {
       font-size: 1.2rem;
       padding: 0 20px;
     }
@@ -886,6 +956,20 @@ Text Domain: grafika_u_rudej
       padding: 0 15px;
     }
     
+    .services-hero {
+      padding: 60px 0;
+      margin-top: 50px;
+    }
+    
+    .services-hero h1 {
+      font-size: 2.5rem;
+    }
+    
+    .services-hero p {
+      font-size: 1.1rem;
+      padding: 0 15px;
+    }
+    
     .contact-content {
       padding: 50px 0 60px 0;
     }
@@ -912,6 +996,25 @@ Text Domain: grafika_u_rudej
     .form-group textarea {
       padding: 15px 20px;
       font-size: 1rem;
+    }
+    
+    .file-upload-display {
+      padding: 12px 16px;
+      min-height: 50px;
+      gap: 10px;
+    }
+    
+    .file-upload-icon {
+      font-size: 1.2rem;
+    }
+    
+    .file-upload-text {
+      font-size: 0.95rem;
+    }
+    
+    .file-upload-button {
+      padding: 5px 10px;
+      font-size: 0.8rem;
     }
     
     .contact-social {
@@ -967,6 +1070,20 @@ Text Domain: grafika_u_rudej
     }
     
     .about-hero p {
+      font-size: 1.1rem;
+      padding: 0 15px;
+    }
+    
+    .services-hero {
+      padding: 60px 0;
+      margin-top: 50px;
+    }
+    
+    .services-hero h1 {
+      font-size: 2.5rem;
+    }
+    
+    .services-hero p {
       font-size: 1.1rem;
       padding: 0 15px;
     }
@@ -1235,9 +1352,60 @@ Text Domain: grafika_u_rudej
       padding: 10px 25px;
       font-size: 0.9rem;
     }
+    
+    .portfolio-modal-content {
+      max-width: 95%;
+      max-height: 95%;
+      margin: 0;
+    }
+    
+    .portfolio-modal-info {
+      padding: 20px;
+    }
+    
+    .portfolio-modal-title {
+      font-size: 1.5rem;
+    }
+    
+    .portfolio-modal-description {
+      font-size: 1rem;
+    }
+    
+    .portfolio-modal-image {
+      max-height: 60vh;
+    }
+    
+    .gallery-nav-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+    
+    .gallery-prev {
+      left: 10px;
+    }
+    
+    .gallery-next {
+      right: 10px;
+    }
+    
+    .gallery-counter {
+      bottom: 10px;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+    
+    .reels-grid {
+      gap: 20px;
+      padding: 0 15px;
+    }
+    
+    .reel-item {
+      width: calc(50% - 10px);
+      max-width: none;
+    }
   }
 
- 
   @media (max-width: 480px) {
     .header-container,
     .hero-container,
@@ -1250,6 +1418,57 @@ Text Domain: grafika_u_rudej
     .services-cta .btn {
       font-size: 1rem;
       padding: 15px 30px;
+    }
+    
+    .portfolio-modal-content {
+      max-width: 98%;
+      max-height: 98%;
+      border-radius: 10px;
+    }
+    
+    .portfolio-modal-info {
+      padding: 15px;
+    }
+    
+    .portfolio-modal-title {
+      font-size: 1.3rem;
+    }
+    
+    .gallery-nav-btn {
+      width: 35px;
+      height: 35px;
+      font-size: 1.2rem;
+    }
+    
+    .gallery-prev {
+      left: 5px;
+    }
+    
+    .gallery-next {
+      right: 5px;
+    }
+    
+    .gallery-counter {
+      bottom: 5px;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+    }
+    
+    .reel-item {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .no-video-message {
+      padding: 40px 20px;
+    }
+    
+    .no-video-icon {
+      font-size: 3rem;
+    }
+    
+    .no-video-message h3 {
+      font-size: 1.3rem;
     }
     
     .reels-grid {
@@ -1350,6 +1569,21 @@ Text Domain: grafika_u_rudej
       padding: 0 10px;
     }
     
+    .services-hero {
+      padding: 50px 0;
+      margin-top: 40px;
+    }
+    
+    .services-hero h1 {
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+    
+    .services-hero p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+    
     .contact-content {
       padding: 40px 0 50px 0;
     }
@@ -1384,6 +1618,31 @@ Text Domain: grafika_u_rudej
     
     .form-group textarea {
       height: 120px;
+    }
+    
+    .file-upload-display {
+      padding: 10px 12px;
+      min-height: 45px;
+      gap: 8px;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .file-upload-icon {
+      font-size: 1.1rem;
+    }
+    
+    .file-upload-text {
+      font-size: 0.9rem;
+    }
+    
+    .file-upload-button {
+      padding: 4px 8px;
+      font-size: 0.75rem;
+    }
+    
+    .file-upload-info small {
+      font-size: 0.8rem;
     }
     
     .contact-social {
@@ -1447,6 +1706,21 @@ Text Domain: grafika_u_rudej
     }
     
     .about-hero p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+    
+    .services-hero {
+      padding: 50px 0;
+      margin-top: 40px;
+    }
+    
+    .services-hero h1 {
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+    
+    .services-hero p {
       font-size: 1rem;
       padding: 0 10px;
     }

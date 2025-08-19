@@ -1,5 +1,4 @@
-<?php
-get_header(); ?>
+<?php get_header(); ?>
 <div class="services-hero animate-on-scroll">
   <h1>Moje usługi</h1>
   <p>Profesjonalne usługi graficzne dostosowane do Twoich potrzeb</p>
@@ -36,7 +35,6 @@ get_header(); ?>
         </div>
       </div>
     </div>
-
     <div class="social-media-section animate-on-scroll">
       <div class="social-media-container">
         <h2 class="animate-on-scroll" data-delay="100">Prowadzenie social media</h2>
@@ -63,7 +61,6 @@ get_header(); ?>
         </div>
       </div>
     </div>
-    
     <div class="pricing-section animate-on-scroll" data-delay="100" style="margin-top:40px;">
       <h2 class="pricing-title">Cennik wybranych usług</h2>
       <div class="pricing-container">
@@ -83,7 +80,6 @@ get_header(); ?>
       </div>
       <p class="pricing-note">Podane ceny są orientacyjne. Każdy projekt wyceniam indywidualnie – napisz po szczegóły!</p>
     </div>
-
     <div class="services-cta animate-on-scroll" data-delay="200">
       <h3>Potrzebujesz czegoś nietypowego?</h3>
       <p>Masz pomysł na niestandardowy projekt? Skontaktuj się ze mną - razem znajdziemy idealne rozwiązanie!</p>

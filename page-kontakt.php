@@ -1,27 +1,23 @@
 <?php
 get_header(); 
-
 $message_type = isset($_GET['message']) ? $_GET['message'] : '';
 $errors = array();
-
 if ($message_type === 'validation_error' && isset($_GET['errors'])) {
     $errors = unserialize(base64_decode($_GET['errors']));
 }
 ?>
-
 <div class="contact-hero animate-on-scroll">
     <div class="contact-hero-content">
         <h1>Skontaktuj się ze mną</h1>
         <p>Masz projekt do realizacji? Napisz do mnie - odpowiem tak szybko jak to możliwe!</p>
     </div>
 </div>
-
 <div class="contact-page">
     <div class="container">
         <div class="contact-content">
             <div class="contact-form-section animate-on-scroll fade-in-left delay-200">
                 <h2>Napisz do mnie</h2>
-                <form class="contact-form" method="post" action="">
+                <form class="contact-form" method="post" action="" enctype="multipart/form-data">
                     <?php wp_nonce_field('contact_form_nonce', 'contact_nonce'); ?>
                     <div class="form-row">
                         <div class="form-group animate-on-scroll fade-in-up delay-300">
@@ -41,7 +37,21 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
                         <label for="message">Wiadomość *</label>
                         <textarea id="message" name="message" placeholder="Opisz swój projekt lub zadaj pytanie..." rows="6" required><?php echo isset($_POST['message']) ? esc_textarea($_POST['message']) : ''; ?></textarea>
                     </div>
-                    <button type="submit" name="contact_form_submit" class="btn form-btn animate-on-scroll fade-in-up " data-delay="700">Wyślij wiadomość</button>
+                    <div class="form-group form-group-full animate-on-scroll fade-in-up" data-delay="650">
+                        <label for="attachment">Załącznik (opcjonalnie)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="attachment" name="attachment" accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt,.zip,.rar" class="file-input">
+                            <div class="file-upload-display">
+                                <span class="file-upload-icon">📎</span>
+                                <span class="file-upload-text">Wybierz plik (max 10MB)</span>
+                                <span class="file-upload-button">Przeglądaj</span>
+                            </div>
+                            <div class="file-upload-info">
+                                <small>Dozwolone formaty: JPG, PNG, GIF, PDF, DOC, DOCX, TXT, ZIP, RAR</small>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" name="contact_form_submit" class="btn form-btn animate-on-scroll fade-in-up " data-delay="750">Wyślij wiadomość</button>
                 </form>
             </div>
         </div>
@@ -64,7 +74,6 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
         </div>
     </div>
 </div>
-
 <?php if ($message_type === 'success'): ?>
     <div id="contact-modal" class="contact-modal">
         <div class="modal-content modal-success">
@@ -100,5 +109,4 @@ if ($message_type === 'validation_error' && isset($_GET['errors'])) {
         </div>
     </div>
 <?php endif; ?>
-
 <?php get_footer(); ?> 

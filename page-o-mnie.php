@@ -1,21 +1,18 @@
-<?php
-get_header(); ?>
+<?php get_header(); ?>
 <div class="about-hero animate-on-scroll">
   <h1>O mnie</h1>
   <p>Zastanawiasz się, kto tworzy te wszystkie wizualne światy?</p>
 </div>
-
 <div class="about-intro animate-on-scroll">
   <div class="about-container">
     <h2 class="animate-on-scroll" data-delay="100">Jak to jest, gdy za każdym projektem stoi ktoś, kto czuje i myśli intensywniej?</h2>
   </div>
 </div>
-
 <div class="about-section">
   <div class="about-container">
     <div class="about-content animate-on-scroll" data-delay="200">
       <div class="about-image animate-on-scroll" data-delay="300">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/o-mnie.webp" alt="Dominika - Grafika u Rudej">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar.webp" alt="Dominika - Grafika u Rudej">
       </div>
       <div class="about-text animate-on-scroll" data-delay="400">
         <h2>To ja, Dominika!</h2>
@@ -24,7 +21,6 @@ get_header(); ?>
     </div>
   </div>
 </div>
-
 <div class="journey-section animate-on-scroll">
   <div class="about-container">
     <h2 class="animate-on-scroll" data-delay="100">Moja Droga – Od Pasji do Profesjonalizmu</h2>
@@ -38,7 +34,6 @@ get_header(); ?>
     </div>
   </div>
 </div>
-
 <div class="personality-section animate-on-scroll">
   <div class="about-container">
     <h2 class="animate-on-scroll" data-delay="100">Świat Widziany Moimi Oczami</h2>
@@ -61,7 +56,6 @@ get_header(); ?>
     </div>
   </div>
 </div>
-
 <div class="why-me-section animate-on-scroll">
   <div class="why-me-container">
     <h2 class="animate-on-scroll" data-delay="100">Dlaczego warto ze mną pracować?</h2>
@@ -81,7 +75,6 @@ get_header(); ?>
     </div>
   </div>
 </div>
-
 <div class="about-cta animate-on-scroll">
   <div class="about-container">
     <div class="cta-box animate-on-scroll" data-delay="100">
@@ -89,14 +82,11 @@ get_header(); ?>
       <div class="cta-content">
         <h3 class="animate-on-scroll" data-delay="100">Wierzę, że w każdym z nas drzemie coś wyjątkowego</h3>
         <p class="animate-on-scroll" data-delay="150">Pozwól, że pomogę Ci pokazać światu to, co w Tobie najlepsze. Wiem, że razem możemy stworzyć coś, co będzie naprawdę Twoje i z czego będziesz dumna.</p>
-        <a href="<?php echo home_url('/kontakt'); ?>" class="btn primary-btn animate-on-scroll" data-delay="300">
-          💬 Porozmawiajmy o Twoim projekcie
-        </a>
+        <a href="<?php echo home_url('/kontakt'); ?>" class="btn primary-btn animate-on-scroll" data-delay="300">💬 Porozmawiajmy o Twoim projekcie</a>
       </div>
     </div>
   </div>
 </div>
-
 <div class="about-cta animate-on-scroll">
   <div class="about-container">
     <div class="cta-box facebook-cta-box animate-on-scroll" data-delay="100">
@@ -104,9 +94,7 @@ get_header(); ?>
       <div class="cta-content">
         <h3 class="animate-on-scroll" data-delay="100">Chcesz poznać mnie lepiej?</h3>
         <p class="animate-on-scroll" data-delay="150">Odwiedź mój prywatny profil na Facebooku i zobacz więcej z mojego życia!</p>
-        <a href="https://www.facebook.com/dominika.rotkegel" target="_blank" class="btn facebook-btn animate-on-scroll" data-delay="300">
-          📘 Odwiedź mój Facebook
-        </a>
+        <a href="https://www.facebook.com/dominika.rotkegel" target="_blank" class="btn facebook-btn animate-on-scroll" data-delay="300">📘 Odwiedź mój Facebook</a>
       </div>
     </div>
   </div>

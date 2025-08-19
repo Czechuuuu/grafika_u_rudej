@@ -6,7 +6,6 @@
     position: relative;
     overflow: hidden;
 }
-
 .hero::before {
     content: '';
     position: absolute;
@@ -17,29 +16,24 @@
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="dots" width="100" height="20" patternUnits="userSpaceOnUse"><circle cx="25" cy="5" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="15" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="20" fill="url(%23dots)"/></svg>') repeat;
     z-index: 1;
 }
-
 .hero > * {
     position: relative;
     z-index: 2;
 }
-
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 .hero-content {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 60px;
     align-items: center;
 }
-
 .hero-text {
     text-align: center;
 }
-
 .hero h1 {
     font-size: 4.2rem;
     font-weight: 800;
@@ -48,11 +42,9 @@
     line-height: 1.1;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
 }
-
 .hero-image {
     text-align: center;
 }
-
 .hero-image img {
     width: 400px;
     height: 400px;
@@ -63,12 +55,10 @@
     animation: logoFloat 3s ease-in-out infinite;
     transition: all 0.3s ease;
 }
-
 .hero-image img:hover {
     transform: translateY(-5px);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
 }
-
 @keyframes logoFloat {
     0%, 100% { 
         transform: translateY(0px); 
@@ -77,12 +67,10 @@
         transform: translateY(-10px); 
     }
 }
-
 .featured-projects {
     padding: 100px 0;
     background: #fff;
 }
-
 .featured-projects h2 {
     text-align: center;
     font-size: 2.8rem;
@@ -91,7 +79,6 @@
     margin-bottom: 60px;
     position: relative;
 }
-
 .featured-projects h2::after {
     content: '';
     position: absolute;
@@ -103,7 +90,6 @@
     background: #f4a023;
     border-radius: 2px;
 }
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -112,7 +98,6 @@
     margin: 0 auto;
     padding: 0 20px;
 }
-
 .project-item {
     background: #fff;
     border-radius: 20px;
@@ -121,7 +106,6 @@
     transition: all 0.3s ease;
     position: relative;
 }
-
 .project-item::before {
     content: '';
     position: absolute;
@@ -132,29 +116,24 @@
     background: linear-gradient(90deg, #f4a023, #ff6b35);
     z-index: 1;
 }
-
 .project-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px rgba(30, 30, 30, 0.15);
 }
-
 .project-item a {
     display: block;
     text-decoration: none;
     color: inherit;
 }
-
 .project-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
-
 .project-item:hover img {
     transform: scale(1.05);
 }
-
 .project-item h3 {
     padding: 25px 30px;
     font-size: 1.4rem;
@@ -163,12 +142,10 @@
     margin: 0;
     line-height: 1.3;
 }
-
 .video-reels {
     padding: 100px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
-
 .video-reels h2 {
     text-align: center;
     font-size: 2.8rem;
@@ -177,7 +154,6 @@
     margin-bottom: 20px;
     position: relative;
 }
-
 .video-reels h2::after {
     content: '';
     position: absolute;
@@ -189,7 +165,6 @@
     background: #f4a023;
     border-radius: 2px;
 }
-
 .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
@@ -199,7 +174,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 .reels-grid {
     display: flex;
     flex-wrap: wrap;
@@ -209,7 +183,6 @@
     margin: 0 auto;
     padding: 0 20px;
 }
-
 .reel-item {
     position: relative;
     width: 300px;
@@ -222,12 +195,10 @@
     background: #000;
     flex-shrink: 0;
 }
-
 .reel-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px rgba(30, 30, 30, 0.15);
 }
-
 .reel-item video {
     width: 100%;
     height: 100%;
@@ -235,7 +206,6 @@
     display: block;
     cursor: pointer;
 }
-
 .reel-overlay {
     position: absolute;
     top: 0;
@@ -252,11 +222,9 @@
     transition: opacity 0.3s ease;
     cursor: pointer;
 }
-
 .reel-item:hover .reel-overlay {
     opacity: 1;
 }
-
 .reel-play-btn {
     width: 60px;
     height: 60px;
@@ -272,12 +240,10 @@
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(244, 160, 35, 0.3);
 }
-
 .reel-overlay:hover .reel-play-btn {
     transform: scale(1.1);
     background: rgba(244, 160, 35, 1);
 }
-
 .reel-title {
     color: white;
     font-weight: 600;
@@ -286,7 +252,6 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     margin-top: auto;
 }
-
 .no-video-message {
     grid-column: 1 / -1;
     text-align: center;
@@ -297,64 +262,27 @@
     margin: 0 auto;
     max-width: 500px;
 }
-
 .no-video-icon {
     font-size: 4rem;
     margin-bottom: 20px;
     opacity: 0.7;
 }
-
 .no-video-message h3 {
     font-size: 1.5rem;
     font-weight: 700;
     color: #1e1e1e;
     margin-bottom: 10px;
 }
-
 .no-video-message p {
     color: #666;
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;
 }
-
-/* Responsive styles for reels */
-@media (max-width: 768px) {
-    .reels-grid {
-        gap: 20px;
-        padding: 0 15px;
-    }
-    
-    .reel-item {
-        width: calc(50% - 10px);
-        max-width: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .reel-item {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .no-video-message {
-        padding: 40px 20px;
-    }
-    
-    .no-video-icon {
-        font-size: 3rem;
-    }
-    
-    .no-video-message h3 {
-        font-size: 1.3rem;
-    }
-}
-
 .about-me {
     padding: 100px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
-
 .about-me h2 {
     text-align: center;
     font-size: 2.8rem;
@@ -363,7 +291,6 @@
     margin-bottom: 60px;
     position: relative;
 }
-
 .about-me h2::after {
     content: '';
     position: absolute;
@@ -375,7 +302,6 @@
     background: #f4a023;
     border-radius: 2px;
 }
-
 .about-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -385,14 +311,12 @@
     margin: 0 auto;
     padding: 0 20px;
 }
-
 .about-content img {
     width: 100%;
     max-width: 400px;
     border-radius: 20px;
     box-shadow: 0 15px 50px rgba(30, 30, 30, 0.15);
 }
-
 .about-content p {
     font-size: 1.3rem;
     line-height: 1.6;
@@ -404,12 +328,10 @@
     box-shadow: 0 10px 30px rgba(30, 30, 30, 0.1);
     border-left: 5px solid #f4a023;
 }
-
 .services {
     padding: 100px 0;
     background: #fff;
 }
-
 .services h2 {
     text-align: center;
     font-size: 2.8rem;
@@ -418,7 +340,6 @@
     margin-bottom: 60px;
     position: relative;
 }
-
 .services h2::after {
     content: '';
     position: absolute;
@@ -430,7 +351,6 @@
     background: #f4a023;
     border-radius: 2px;
 }
-
 .services-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -439,7 +359,6 @@
     margin: 0 auto;
     padding: 0 20px;
 }
-
 .service {
     background: #fff;
     padding: 40px 30px;
@@ -451,7 +370,6 @@
     position: relative;
     overflow: hidden;
 }
-
 .service::before {
     content: '';
     position: absolute;
@@ -464,30 +382,25 @@
     transition: all 0.6s ease;
     opacity: 0;
 }
-
 .service:hover::before {
     opacity: 1;
     top: -60%;
     left: -60%;
 }
-
 .service:hover {
     transform: translateY(-5px);
     border-color: #f4a023;
     box-shadow: 0 15px 50px rgba(244, 160, 35, 0.2);
 }
-
 .service .icon {
     font-size: 3rem;
     margin-bottom: 20px;
     display: block;
     transition: transform 0.3s ease;
 }
-
 .service:hover .icon {
     transform: scale(1.1);
 }
-
 .service h3 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -496,7 +409,6 @@
     position: relative;
     z-index: 2;
 }
-
 .service p {
     color: #666;
     line-height: 1.6;
@@ -504,12 +416,10 @@
     position: relative;
     z-index: 2;
 }
-
 .services-cta {
     text-align: center;
     margin-top: 50px;
 }
-
 .services-cta .btn {
     font-size: 1.1rem;
     padding: 20px 40px;
